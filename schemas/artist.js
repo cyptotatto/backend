@@ -3,21 +3,22 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 /**
  * account
+ * 장르 : 여러개 가능-> 배열
+ * 생성
  */
-const userSchema = new Schema({
+const artistSchema = new Schema({
   account: {
     type: String,     // 자료형
     required: true,   // 필수 여부
-   // unique: true,     // 고유 값
-  //  default: true,
+  
   },
-
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  genre : [{
+    type: String
+}]
 })
 
-module.exports = mongoose.model('User', userSchema);
-// const User = mongoose.model('User', userSchema);
-// export default User;
+module.exports = mongoose.model('Artist', artistSchema);
