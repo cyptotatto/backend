@@ -8,8 +8,9 @@ var cookieParser =require('cookie-parser');
 
 
 //var logger =require('morgan');
-var indexRouter =require('./routes/index');
+
 var userRouter = require('./routes/users');
+var indexRouter =require('./routes/index');
 var connect =require('./schemas');
 
 var app =express();

@@ -7,7 +7,7 @@ const connect = () => {
 
   mongoose.connect(url, {
     dbName: 'mongo',
-    //useNewUrlParser: true,
+   // useNewUrlParser: true,
     //userCreateIndex: true,
   }, (error) => {
     if (error) {
