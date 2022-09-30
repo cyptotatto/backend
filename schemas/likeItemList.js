@@ -22,3 +22,4 @@ const likeItemSchema = new Schema({
 })
 
 module.exports = mongoose.model('likeItem', likeItemSchema);
+//ㅇㅇ

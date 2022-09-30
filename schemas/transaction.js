@@ -34,6 +34,7 @@ transactionPrice: {
   }
 
   //sl
+  //ㅇㅇ
 
 })
 

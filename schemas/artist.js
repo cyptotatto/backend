@@ -20,5 +20,5 @@ const artistSchema = new Schema({
     type: String
 }]
 })
-
+//ㅇ
 module.exports = mongoose.model('Artist', artistSchema);
