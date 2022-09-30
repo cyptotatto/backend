@@ -59,5 +59,6 @@ part: {//부위는 하나만 가능 , 도안NFT에서는 사용 x ,사진 NFT에
   }
 
 })
+//테스트코드
 
 module.exports = mongoose.model('NFT', nftSchema);
