@@ -24,3 +24,18 @@
     "sellerAccount":"073809007dd3347"
   
 }
+
+
+//post http://localhost:5000/nft/minting
+
+{
+  
+    "title": "자유",
+    "link": "https://github.com/hye-on/crypTattoo",
+    "userAccount": "0738090073347",
+    "price": 50000,
+    "genre": "이레즈미",
+    "theme": "꽃",
+     "part": "등"
+  
+}
