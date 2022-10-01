@@ -3,9 +3,13 @@ const router = express.Router();
 const User = require('../schemas/users');
 
 // 유저 생성 http://localhost:5000/users/add
+
+
 router.post('/add', function(req,res){
   const user = new User({
-    account: req.body.account
+    account: req.body.account,
+    artist: req.body.artist,
+    genre: req.body.genre
   })
 
   console.log("요청" + req.body);

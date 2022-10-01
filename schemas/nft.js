@@ -23,13 +23,13 @@ title: {
         type: ObjectId,
         type:String,
         required: true,
-        ref: 'Artist'      
+        ref: 'User'      
         
   },
   ownerId: { 
     type: ObjectId,
     type:String,
-    ref: 'User'     //소유자가 Artist일 수도..
+    ref: 'User'    
     
 },
   price: {

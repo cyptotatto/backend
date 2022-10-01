@@ -1,0 +1,8 @@
+//http://localhost:5000/users/add
+
+{
+    "account": "07380sss9007dd3347",
+    "artist": 1,
+    "genre": ["이레즈미" , "블랙워크"]
+   
+}
