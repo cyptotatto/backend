@@ -1,8 +1,26 @@
-//http://localhost:5000/users/add
+//post http://localhost:5000/users/add
 
 {
     "account": "07380sss9007dd3347",
     "artist": 1,
     "genre": ["이레즈미" , "블랙워크"]
    
+}
+
+
+
+//post  http://localhost:5000/transaction
+{
+    "buyerAccount":"0738090073347",
+    "sellerAccount":"073809007dd3347",
+    "nftId": "1000",
+    "transactionPrice": 1000
+}
+
+//get    http://localhost:5000/transaction/list
+
+{
+  
+    "sellerAccount":"073809007dd3347"
+  
 }

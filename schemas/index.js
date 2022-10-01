@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 var url = 'mongodb+srv://ain0103:HGu5b3r1aIz0hQqs@cluster0.8s3c6l1.mongodb.net/?retryWrites=true&w=majority'; 
+//하영님 url로 테스트 할때는  제 url 주석처리 부탁드려요!(지우지 말아주세요)
 const connect = () => {
   if (process.env.NODE_ENV !== 'production') {
     mongoose.set('debug', true);

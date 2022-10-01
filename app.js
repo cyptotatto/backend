@@ -1,5 +1,5 @@
 //var createError = require('http-express');
-const User = require('./schemas/users');
+//const User = require('./schemas/users');
 const port = 5000;
 
 var express =require('express');
@@ -9,13 +9,14 @@ var bodyParser = require('body-parser')
 
 var logger =require('morgan');
 
-var userRouter = require('./routes/users');
-var indexRouter =require('./routes/index');
+//var userRouter = require('./routes/users');
+//var indexRouter =require('./routes/index');
 var connect =require('./schemas');
 
 var app =express();
 app.use(bodyParser.json());
-app.use('/users', require('./routes/users'));
+//app.use('/users', require('./routes/users'));
+app.use('/', require('./routes'));
 
 
 connect();

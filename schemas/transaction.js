@@ -4,16 +4,21 @@ const { Schema } = mongoose;
 
  const { Types: ObjectId } = Schema();
 const transactionSchema = new Schema({
+/**
+ * buyerAccount
+ * sellerAccount
+ * nftId
+ * transactionPrice
+ */
 
-
-buyerId: { 
+buyerAccount: { 
     type: ObjectId,
     type:String,
     required: true,
     ref: 'User'    
     
 },
-sellerId: { 
+sellerAccount: { 
     type: ObjectId,
     type:String,
     required: true,
@@ -33,8 +38,7 @@ transactionPrice: {
  
   }
 
-  //sl
-  //ㅇㅇ
+ 
 
 })
 
