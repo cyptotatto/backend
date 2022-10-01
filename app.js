@@ -4,19 +4,23 @@ const port = 5000;
 
 var express =require('express');
 var path = require('path');
-var cookieParser =require('cookie-parser');
+var bodyParser = require('body-parser')
 
 
-//var logger =require('morgan');
+var logger =require('morgan');
 
 var userRouter = require('./routes/users');
 var indexRouter =require('./routes/index');
 var connect =require('./schemas');
 
 var app =express();
+app.use(bodyParser.json());
+app.use('/users', require('./routes/users'));
+
+
 connect();
 app.get('/', function (req, res) {
-    res.send('hello world!!');
+    res.send('hello world!!2');
 
     // const user = new User({
     //     // name: req.body.name,
