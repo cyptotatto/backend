@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const NFT = require('../schemas/nft');
+const NFT = require('../../schemas/nft');
 
 /**
  * title

@@ -16,7 +16,7 @@ var connect =require('./schemas');
 var app =express();
 app.use(bodyParser.json());
 //app.use('/users', require('./routes/users'));
-app.use('/', require('./routes'));
+app.use('/', require('./api/routes'));
 
 
 connect();

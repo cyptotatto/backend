@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../schemas/users');
+const User = require('../../schemas/users');
 
 // 유저 생성 http://localhost:5000/users/add
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Transaction = require('../schemas/transaction');
+const Transaction = require('../../schemas/transaction');
 
 
 /**
