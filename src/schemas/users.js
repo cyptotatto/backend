@@ -20,8 +20,14 @@ const userSchema = new Schema({
     type: Boolean,
     required: true,   // 필수 여부
     default: 0
+    
   }
   ,
+  likeCount: {
+    type: Number,     
+    default: 0
+    
+  },
   //굳이 배열로 해야할까? 만약 장르가 수정되지 않는다면 number로도 가능할듯(비트 마스킹) ex)  10110 ->(이레즈미,블랙워크,올드스쿨,뉴스쿨,일러스트) 중에서 이레즈미 블랙워크 올드스쿨 해당
   genre : [{
     type: String,

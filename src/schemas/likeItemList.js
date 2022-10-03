@@ -7,13 +7,19 @@ const likeItemSchema = new Schema({
   account: {
     type: String,     // 자료형
     required: true,   // 필수 여부
+    ref:'User'
   },
-  nftId: { 
-    type: ObjectId,
-    type:String,
-    required: true,
-    ref: 'NFT'    
-    
+  
+nfts: {
+  items:[
+      {
+          nftId:{
+           type:ObjectId,
+           ref:'NFT',
+           required:true
+          }
+      }
+  ]
 },
   createdAt: {//도안 top 100을 위해 임의로
     type: Date,
