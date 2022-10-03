@@ -1,3 +1,4 @@
+//곧 삭제할 것
 // const express = require('express');
 // const router = express.Router();
 // const Comment = require('../schemas/comment');
