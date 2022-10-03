@@ -9,6 +9,14 @@ router.get('/', function(req, res, next) {
 router.use('/users', require('./users'));//나중에 단수로 바꾸기
 router.use('/transaction', require('./transaction'));
 router.use('/nft', require('./nft'));
+
+
+router.use('/home', require('./home'));
+router.use('/create', require('./create'));
+router.use('/explore', require('./explore'));
+router.use('/myPage', require('./myPage'));
+
+
 //router.use('/comment', require('./comment'));
 
 module.exports = router;
