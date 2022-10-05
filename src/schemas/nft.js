@@ -22,7 +22,7 @@ title: {
     
     },
 link: {//추가됨
-  type: String,
+  type: URL,
   required: true,
 
 },

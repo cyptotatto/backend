@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
  const { Types: ObjectId } = Schema();
+
+ /**
+  * account
+  * nfts
+  * createAt
+  */
 const likeItemSchema = new Schema({
   account: {
     type: String,     // 자료형
@@ -10,17 +16,13 @@ const likeItemSchema = new Schema({
     ref:'User'
   },
   
-nfts: {
-  items:[
-      {
+nfts: [{ 
           nftId:{
            type:ObjectId,
            ref:'NFT',
            required:true
-          }
-      }
-  ]
-},
+          }    
+}],
   createdAt: {//도안 top 100을 위해 임의로
     type: Date,
     default: Date.now

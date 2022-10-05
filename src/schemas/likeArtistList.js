@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
  const { Types: ObjectId } = Schema();
+ /**
+  * account 
+  * artist
+  * createdAt
+  */
 const likeArtistSchema = new Schema({
    account: {
     type: String,     // 자료형

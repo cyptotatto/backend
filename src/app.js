@@ -11,7 +11,7 @@ var logger =require('morgan');
 
 //var userRouter = require('./routes/users');
 //var indexRouter =require('./routes/index');
-var connect =require('./schemas');
+var connect =require('./schemas/db');
 
 var app =express();
 app.use(bodyParser.json());
@@ -23,27 +23,7 @@ connect();
 app.get('/', function (req, res) {
     res.send('hello world!!2');
 
-    // const user = new User({
-    //     // name: req.body.name,
-    //     // age: req.body.age,
-    //     // married: req.body.married
-    //     name: "hye-on2",
-    //     age: 22,
-    //     married: false
-    //   })
-    //   user.save()
-    //     .then((result) => {
-    //     console.log("22");
     
-    //       res.json(result);
-    //     })
-    //     .catch((err) => {
-    //     console.log("33");
-    
-    //       console.error(err);
-    //       next(err);
-    //     })
-
         res.send('hello world!!2');
 
 
