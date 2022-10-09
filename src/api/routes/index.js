@@ -15,8 +15,6 @@ router.use('/home', require('./home'));
 // router.use('/create', require('./create'));
 // router.use('/explore', require('./explore'));
 // router.use('/myPage', require('./myPage'));
-
-
 //router.use('/comment', require('./comment'));
 
 module.exports = router;

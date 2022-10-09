@@ -29,11 +29,25 @@ module.exports = {
     getHotNFT: async () => {
         try{
         const hotNft = await NFT.find({});
+        console.log(hotNft);
         return hotNft;
         }catch(err){
             console.log(err);
             throw err;
         }
 
-    }   
+    }  
+    //,
+    
+    // getHotNFT2: async () => {
+    //     try{
+    //     const hotNft = await NFT.find({});
+    //     console.log(hotNft);
+    //     return hotNft;
+    //     }catch(err){
+    //         console.log(err);
+    //         throw err;
+    //     }
+
+    // }  
 }

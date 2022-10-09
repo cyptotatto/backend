@@ -52,6 +52,7 @@ price: {
 likeCount: {
   type: Number,     
   default: 0
+ 
   
 },
 

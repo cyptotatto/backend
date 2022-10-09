@@ -20,13 +20,17 @@ const NFT = require('../../schemas/nft');
 router.post('/minting', function(req,res){//민팅할때는 소유자와 아티스트의 아이디가 같다.
   const nft = new NFT({
     title: req.body.title,
-    link: req.body.link,
-    artistId: req.body.userAccount,
-    ownerId: req.body.userAccount,
+    userAccount: req.body.userAccount,
+    artistId: req.body.artistID,
     price: req.body.price,
+    likeCount: req.body.likeCount,
     genre: req.body.genre,
     theme: req.body.theme,
-    part: req.body.part
+    part: req.body.part,
+    sale: req.body.sale
+
+
+
 
   })
 
