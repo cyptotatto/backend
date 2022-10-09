@@ -1,1 +1,1 @@
-const NFT = require('../../schemas/nft');
+//const NFT = require('../../schemas/nft');

@@ -12,6 +12,7 @@ const { Schema } = mongoose;
  * theme
  * part
  * createdAt
+ * 
  */
  const { Types: ObjectId } = Schema();
 const nftSchema = new Schema({
@@ -21,9 +22,13 @@ title: {
     required: true,
     
     },
-link: {//추가됨
-  type: URL,
-  required: true,
+// link: {//추가됨
+//   type: URL,
+//   required: true,
+
+// },
+explanation:{
+type: String
 
 },
 artistId: { 
@@ -33,12 +38,12 @@ artistId: {
       ref: 'User'      
         
   },
-ownerId: { 
-  type: ObjectId,
-  type:String,
-  ref: 'User'    
+// ownerId: { 
+//   type: ObjectId,
+//   type:String,
+//   ref: 'User'    
     
-},
+// },
 price: {
   type: Number,     // 자료형
   required: true   // 필수 여부
@@ -65,9 +70,14 @@ part: {// 도안NFT에서는 사용 x ,사진 NFT에서만 사용
 createdAt: {
   type: Date,
   default: Date.now
+},
+sale:{//true->판매등록, false -> 판매안함
+  type:Boolean,
+  require:true
 }
   
 })
 
 
-module.exports = mongoose.model('NFT', nftSchema);
+//module.exports = mongoose.model('NFT', nftSchema);
+module.exports = mongoose.models['NFT'] || mongoose.model('NFT', nftSchema);

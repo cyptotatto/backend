@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 /**
  * account
+ * name
  * artist  아티스트인지 일반 사용자인지 여부
+ * likeCount
  * genre
  * createdAt
  */
@@ -14,6 +16,11 @@ const userSchema = new Schema({
     required: true,   // 필수 여부
     unique: true,     // 고유 값
   //  default: true,
+  },
+  name:{
+    type:String,
+    required: true,
+    unique:true
   },
 
   artist: {//0은 일반 사용자 1은 아티스트
