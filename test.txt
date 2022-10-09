@@ -31,12 +31,13 @@
 
 {
   
-    "title": "자유",
-    "link": "https://github.com/hye-on/crypTattoo",
-    "userAccount": "0738090073347",
+    "title": "나비",
+    "userAccount": "073ㅇㅇㅇ80ㅁ90073347",
+    "artistID" : "dㅁdd",
     "price": 50000,
     "genre": "이레즈미",
     "theme": "꽃",
-     "part": "등"
+     "part": "등",
+     "sale" : "true"
   
 }

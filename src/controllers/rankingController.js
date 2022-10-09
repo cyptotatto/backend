@@ -27,23 +27,24 @@ const Nft = require('../schemas/nft');
 //     }
 // };
 
-exports.getHotItem = async (req, res, next) => {
+//최종
+// exports.getHotItem = async (req, res, next) => {
     
-    //let { boardId } = req.params
-    var ranking={};
+//     //let { boardId } = req.params
+//     var ranking={};
 
-    //
+//     //
 
-    //user가져오기
-    User.find()
-    .then((ranking) => {
-    //ranking=users;
-    res.json(ranking);
-    })
-    .catch((err) => {
-    console.error(err);
-    next(err);
-    })
+//     //user가져오기
+//     User.find()
+//     .then((ranking) => {
+//     //ranking=users;
+//     res.json(ranking);
+//     })
+//     .catch((err) => {
+//     console.error(err);
+//     next(err);
+//     })
 
     //nft 가져오기
     // Nft.find()
@@ -65,6 +66,32 @@ exports.getHotItem = async (req, res, next) => {
     // } catch (err) {
     //     return res.status(500).json(err)
     // }
+//}
+//최종
+
+
+
+module.exports = {
+    getHotItem: async (req, res) => {
+        try{
+        const artistRanking =await userService.getHotArtist();
+        const nftRanking =await nftService.getHotNFT();
+        
+;        return res.status(200).json({
+            status:200,
+            message: "랭킹 가져오기 성공",
+           // data: nftRanking
+           artistTop100 :artistRanking,
+           nftTop100 :nftRanking,
+
+        });
+    }catch(err)
+    {
+        console.log(err);
+        throw err;
+    }
+           
+    }
 }
 
 // // 생략...

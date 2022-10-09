@@ -1,26 +1,60 @@
 const user = require('../schemas/user');
 var User = require('../schemas/user');
+var utils = require('util');
 
  
-
 module.exports = {
+    getHotArtist: async () => {
+        try{
+        const HotArtist = await User.find({});
+        return HotArtist;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
 
-    getHotArtist:function(req, res) {
-    var user={};
-        User.find()
-    .then((users2) => {
-        user=users2;
-    console.log("service "+user );
-    return users2;
-    })
-    .catch((err) => {
-    console.error(err);
-    next(err);
-    })
-    return user;
-    }
- 
+    }   
 }
+        // return new Promise(async (resolve, reject) => {
+        //     const HotArtist = await User.find({});
+        //     console.log("service "+HotArtist );
+        //     if(HotArtist.length == 0) {
+        //         resolve({
+        //             json: utils.successFalse(sc.NO_CONTENT, rm.CITY_EMPTY)
+        //         });
+        //         return;
+        //     }
+        //     if (!HotArtist) {
+        //         resolve({
+        //             json: utils.successFalse(sc.INTERNAL_SERVER_ERROR, rm.CITY_READ_ALL_FAIL)
+        //         });
+        //         return;
+        //     }
+        //     resolve({
+        //         json: utils.successTrue(sc.SUCCESS, rm.CITY_READ_ALL_SUCCESS, HotArtist)
+               
+        //     });
+        // });
+    
+
+// module.exports = {
+
+//     getHotArtist:function(req, res) {
+//     var user={};
+//         User.find()
+//     .then((users2) => {
+//         user=users2;
+//     console.log("service "+user );
+//     return users2;
+//     })
+//     .catch((err) => {
+//     console.error(err);
+//     next(err);
+//     })
+//     return user;
+//     }
+ 
+// }
 
 // exports.getHotArtist = async()=>{
    
