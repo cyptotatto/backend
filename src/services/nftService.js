@@ -34,6 +34,8 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    //    mintingNft
+    //nft를 db에 저장
 
     }
     //,
