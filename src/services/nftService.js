@@ -1,6 +1,55 @@
 var NFT = require('../schemas/NFT')
 
-// exports.getUsers = async function (query, page, limit) {
+
+module.exports = {
+    getHotNFT: async () => {//rankingController에서 사용
+        try{
+        const hotNft = await NFT.find({});
+       
+        return hotNft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
+    getOwnNFT: async (account) => {//myPageController에서 사용
+        try{
+        const myNft = await NFT.find({"ownerId" : account });//
+
+       
+        return myNft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
+    getMadeNFT: async (account) => {//myPageController에서 사용
+        try{
+        const madeNft = await NFT.find({"artistId": account});
+      
+        return madeNft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    }
+    //,
+    
+    // getHotNFT2: async () => {
+    //     try{
+    //     const hotNft = await NFT.find({});
+    //     console.log(hotNft);
+    //     return hotNft;
+    //     }catch(err){
+    //         console.log(err);
+    //         throw err;
+    //     }
+
+    // }  
+    // exports.getUsers = async function (query, page, limit) {
 
 //     try {
 //         var users = await User.find(query)
@@ -24,30 +73,4 @@ var NFT = require('../schemas/NFT')
 //         })
 //     }
 // }
-
-module.exports = {
-    getHotNFT: async () => {
-        try{
-        const hotNft = await NFT.find({});
-        console.log(hotNft);
-        return hotNft;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-
-    }  
-    //,
-    
-    // getHotNFT2: async () => {
-    //     try{
-    //     const hotNft = await NFT.find({});
-    //     console.log(hotNft);
-    //     return hotNft;
-    //     }catch(err){
-    //         console.log(err);
-    //         throw err;
-    //     }
-
-    // }  
 }

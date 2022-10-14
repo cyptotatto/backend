@@ -38,12 +38,12 @@ artistId: {
       ref: 'User'      
         
   },
-// ownerId: { 
-//   type: ObjectId,
-//   type:String,
-//   ref: 'User'    
+ownerId: { 
+  type: ObjectId,
+  type:String,
+  ref: 'User'    
     
-// },
+},
 price: {
   type: Number,     // 자료형
   required: true   // 필수 여부

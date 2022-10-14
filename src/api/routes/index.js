@@ -12,6 +12,8 @@ router.get('/', function(req, res, next) {
 
 
 router.use('/home', require('./home'));
+router.use('/myPage', require('./myPage'));
+
 // router.use('/create', require('./create'));
 // router.use('/explore', require('./explore'));
 // router.use('/myPage', require('./myPage'));

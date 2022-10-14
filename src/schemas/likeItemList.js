@@ -10,7 +10,7 @@ const { Schema } = mongoose;
   * createAt
   */
 const likeItemSchema = new Schema({
-  account: {
+  userAccount: {
     type: String,     // 자료형
     required: true,   // 필수 여부
     ref:'User'
@@ -20,6 +20,7 @@ nfts: [{
           nftId:{
            type:ObjectId,
            ref:'NFT',
+           type:String,
            required:true
           }    
 }],

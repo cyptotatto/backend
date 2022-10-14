@@ -1,13 +1,13 @@
 
-var User = require('../schemas/user');
+var likeItemList = require('../schemas/likeItemList');
 var utils = require('util');
 
  
 module.exports = {  
-    getHotArtist: async () => {
+    getLikeNFT: async (account) => {
         try{
-        const HotArtist = await User.find({});//db에서 전부 다 가지고 오기. 추후에 상위100개만 가지고 오는 것으로 변경
-        return HotArtist;//rankingController의 getHotItem으로 반환
+        const likeNft = await likeItemList.find({"userAccount":account});
+        return likeNft;
         }catch(err){
             console.log(err);
             throw err;

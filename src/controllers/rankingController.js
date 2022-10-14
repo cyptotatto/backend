@@ -11,8 +11,8 @@ const Nft = require('../schemas/nft');
 module.exports = {
     getHotItem: async (req, res) => {
         try{
-        const artistRanking =await userService.getHotArtist();
-        const nftRanking =await nftService.getHotNFT();
+        const artistRanking =await userService.getHotArtist();//아티스트 top 100
+        const nftRanking =await nftService.getHotNFT();//nft top100
         
        return res.status(200).json({
             status:200,

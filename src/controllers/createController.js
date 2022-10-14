@@ -4,6 +4,7 @@ const User = require('../schemas/user');
 const Nft = require('../schemas/nft');
 
 module.exports = {
+    
     insertNFT: async (req, res) => {
     //     try{
     //     const artistRanking =await userService.getHotArtist();
