@@ -16,14 +16,14 @@ module.exports = {//소유 ->nft(ownerId), 만든->nft(artistId), 판매한->tra
         const soldNft =await transactionService.getSoldNFT(userAccount);
         const likeNft =await likeItemService.getLikeNFT(userAccount);
 
-
+ 
         
        return res.status(200).json({
             status:200,
             message: "myPage 가져오기 성공",
            // data: nftRanking
            ownedNFT :ownedNft ,
-            madeNFT :madeNft,
+            madeNFT :madeNft, 
            soldNft: soldNft,
           likeNTF: likeNft
           
@@ -35,7 +35,6 @@ module.exports = {//소유 ->nft(ownerId), 만든->nft(artistId), 판매한->tra
     }
            
     }
-
 
 
     

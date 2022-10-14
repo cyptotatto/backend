@@ -1,13 +1,21 @@
-
+const user = require('../schemas/user');
 var User = require('../schemas/user');
 var utils = require('util');
 
+
+//create(){
+
+//createNFT() {
+//    createController.save(this.body)
+// }
+
+//};
  
-module.exports = {  
+module.exports = {
     getHotArtist: async () => {
         try{
-        const HotArtist = await User.find({});//db에서 전부 다 가지고 오기. 추후에 상위100개만 가지고 오는 것으로 변경
-        return HotArtist;//rankingController의 getHotItem으로 반환
+        const HotArtist = await User.find({});
+        return HotArtist;
         }catch(err){
             console.log(err);
             throw err;
@@ -15,6 +23,12 @@ module.exports = {
 
     }   
 }
+    
+
+
+
+
+ 
         // return new Promise(async (resolve, reject) => {
         //     const HotArtist = await User.find({});
         //     console.log("service "+HotArtist );
