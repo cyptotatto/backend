@@ -1,33 +1,35 @@
-const mongoose = require('mongoose');
+//필요 x
 
-const { Schema } = mongoose;
+// const mongoose = require('mongoose');
 
- const { Types: ObjectId } = Schema();
- /**
-  * account 
-  * artist
-  * createdAt
-  */
-const likeArtistSchema = new Schema({
-   account: {
-    type: String,     // 자료형
-    required: true,   // 필수 여부
-    ref:'User'
-  },
+// const { Schema } = mongoose;
+
+//  const { Types: ObjectId } = Schema();
+//  /**
+//   * account 
+//   * artist
+//   * createdAt
+//   */
+// const likeArtistSchema = new Schema({
+//    account: {
+//     type: String,     // 자료형
+//     required: true,   // 필수 여부
+//     ref:'User'
+//   },
   
-artist: [{
+// artist: [{
   
-    artistId:{
-    type:ObjectId,
-    ref:'User',
-    required:true
-    }
-}],
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-})
+//     artistId:{
+//     type:ObjectId,
+//     ref:'User',
+//     required:true
+//     }
+// }],
+//   createdAt: {
+//     type: Date,
+//     default: Date.now
+//   }
+// })
 
-module.exports = mongoose.model('likeArtist', likeArtistSchema);
-//ㅇㅇ
+// module.exports = mongoose.model('likeArtist', likeArtistSchema);
+// //ㅇㅇ

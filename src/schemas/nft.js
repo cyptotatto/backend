@@ -49,7 +49,7 @@ price: {
   required: true   // 필수 여부
   
   },
-likeCount: {
+likeCount: {//증가하면 user의 likeCount증가하게 해주어야한다.
   type: Number,     
   default: 0
  

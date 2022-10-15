@@ -30,7 +30,7 @@ const userSchema = new Schema({
     
   }
   ,
-  likeCount: {
+  likeCount: {//만든 NFT 좋아요 총합
     type: Number,     
     default: 0
     

@@ -1,26 +1,23 @@
 const express = require('express');
 const router = express.Router();
-var userController = require('../../controllers/UserController');
-var nftController = require('../../controllers/NftController');
+var exploreController = require('../../controllers/exploreController');
 
-//타투도안 반환
-router.get('/tattoo',nftController.getNFT, (req, res) => {
-    return ;//res.json({ user: req.currentUser }).status(200);
-  });
-//아티스트 반환
-router.get('/artist',  userController.getArtist, (req, res) => {
-    return ;//res.json({ user: req.currentUser }).status(200);
-  });s
-//장르로 필터링 한 도안 반환
-router.get('/tattoo/:genre', nftController.getGenreNFT, (req, res) => {
-return ;//res.json({ user: req.currentUser }).status(200);
-});
-//주제로 필터링 한 도안 반환
-router.get('/tattoo/:theme', nftController.getThemeNFT, (req, res) => {
-    return ;//res.json({ user: req.currentUser }).status(200);
-    });
-//부위로 필터링 한 도안 반환
-router.get('/tattoo/:part',  nftController.getPartNFT, (req, res) => {
-    return ;//res.json({ user: req.currentUser }).status(200);
-    });
+
+// NFT검색:장르
+router.get('/nft/genre/:genre',exploreController.getNftByGenre);
+
+//NFT검색:주제
+router.get('/nft/theme/:theme', exploreController.getNftByTheme);
+
+
+//NFT검색:부위
+router.get('/nft/part/:part', exploreController.getNftByPart);
+
+//NFT검색: 장르& 주제
+router.get('/nft/genretheme/:genre/:theme', exploreController.getNftByGenreAndTheme);
+
+//아티스트 검색:장르
+router.get('/artist/genre/:genre', exploreController.getArtistByGenre);
+
+
 module.exports = router;

@@ -8,8 +8,8 @@ var likeItemService = require('../services/likeItemService');
 module.exports = {//소유 ->nft(ownerId), 만든->nft(artistId), 판매한->transaction(sellerAccount) , 좋아요->likeItemSchema(userAccount)
     getMyNFT: async (req, res) => {
         try{
-       
-        const userAccount= req.params.account;
+       //이름이 unique라면 계좌로 검색안해도 된다. 여쭈어보기
+        const userAccount=req.params.name;
         //console.log(userAccount);
         const ownedNft =await nftService.getOwnNFT(userAccount);
         const madeNft =await nftService.getMadeNFT(userAccount);

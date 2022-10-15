@@ -21,7 +21,29 @@ module.exports = {
             throw err;
         }
 
-    }   
+    },
+    getUserAccount: async (userName) => {
+        try{
+        const HotArtist = await User.findOne({"name":userName});
+        return HotArtist.account.toString;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
+    //explore : 아티스트 검색 : 장르별 (1개)
+    searchArtistByGenre: async (artistGenre) => {//myPageController에서 사용
+        try{
+        const artist = await User.find({"genre": artistGenre});
+      
+        return artist;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+    }
+
 }
     
 
