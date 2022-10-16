@@ -3,6 +3,7 @@ var User = require('../schemas/user')
 
 
 
+
 module.exports = {
     //랭킹 1~100 NFT 가져오기
     getHotNFT: async () => {//rankingController에서 사용
@@ -86,7 +87,42 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    },
+
+    mintNFT: async (fileUploadT, titleT, linkT, genreT, sellT) => {//create에서 사용
+        try{
+        const mintNft = await NFT.find({"genre": nftGenre,"theme": nftTheme,"sale":true});
+      
+        const nft = new NFT({
+            title: titleT,
+            //link: linkT,
+            artistId: null,
+            ownerId: null,
+            price: null,
+            genre: genreT,
+            theme: null,
+            part: null,//근데 create 일반에선 필수
+            sale: sellT
+    
+        
+          });
+
+          nft.save()
+          .then((result) => {
+            return result
+          })
+          .catch((err) => {
+            console.error(err);
+            next(err);
+          })
+
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
     }
+
+     
     
     //
     //    mintingNft
@@ -130,4 +166,18 @@ module.exports = {
 //         })
 //     }
 // }
-}
+};
+
+ 
+
+
+
+
+
+//create(){
+
+// createNFT(){
+//   createController.save(this.body)
+//}
+    
+// };
