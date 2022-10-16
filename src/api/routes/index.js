@@ -12,7 +12,7 @@ router.use('/nft', require('./nft'));
 router.use('/home', require('./home'));
 router.use('/myPage', require('./myPage'));
 router.use('/explore', require('./explore'));
-// router.use('/create', require('./create'));
+router.use('/create', require('./create'));
 
 // router.use('/myPage', require('./myPage'));
 //router.use('/comment', require('./comment'));

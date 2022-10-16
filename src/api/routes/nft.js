@@ -42,6 +42,7 @@ router.post('/minting', function(req,res){//민팅할때는 소유자와 아티�
       console.error(err);
       next(err);
     })
+
 })
 
 

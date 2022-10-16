@@ -2,14 +2,6 @@ const user = require('../schemas/user');
 var User = require('../schemas/user');
 var utils = require('util');
 
-
-//create(){
-
-//createNFT() {
-//    createController.save(this.body)
-// }
-
-//};
  
 module.exports = {
     getHotArtist: async () => {
