@@ -91,17 +91,16 @@ module.exports = {
 
     mintNFT: async (fileUploadT, titleT, linkT, genreT, sellT) => {//create에서 사용
         try{
-        const mintNft = await NFT.find({"genre": nftGenre,"theme": nftTheme,"sale":true});
       
         const nft = new NFT({
             title: titleT,
             //link: linkT,
-            artistId: null,
-            ownerId: null,
-            price: null,
+            artistId: "jee",
+            ownerId: "joo",
+            price: 3000,
             genre: genreT,
-            theme: null,
-            part: null,//근데 create 일반에선 필수
+            theme: "good",
+            part: "hand",//근데 create 일반에선 필수
             sale: sellT
     
         
