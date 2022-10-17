@@ -50,7 +50,8 @@ price: {
   
   },
 likeCount: {//증가하면 user의 likeCount증가하게 해주어야한다.
-  type: Number,     
+  type: Number,
+  index: true,     
   default: 0
  
   
