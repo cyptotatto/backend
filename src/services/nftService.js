@@ -120,6 +120,7 @@ module.exports = {
             throw err;
         }
     }
+    //plusNftLike -> userService.plusArtistLike   이 방법밖에 없을지
 
      
     
