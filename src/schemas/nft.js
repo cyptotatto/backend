@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
-
+const BigNumberSchema = require('mongoose-bignumber')
 const { Schema } = mongoose;
-/**
+/**mintHash 
+ * mintSignature
+ * tokenID(big number)
+ * holder
+ * isMint 민팅여부 
  * title
  * link
  * artistId
@@ -16,12 +20,33 @@ const { Schema } = mongoose;
  */
  const { Types: ObjectId } = Schema();
 const nftSchema = new Schema({
-
-title: {
+mintHash : {//lazy minting 의 경우 create할때는 없는 값이므로  default null, required true 안했음
+  type: String,
+  default:null
+  },
+  mintSignature: {
     type: String,
-    required: true,
-    
+    default:null
     },
+  tokenID:{
+    type: BigNumberSchema,
+    default:0
+  },
+ holder : {
+  type: String,
+  default:null
+  },
+  title: {
+      type: String,
+      required: true,
+      
+  },
+  isMint: {
+    type: Boolean,
+    required: true,
+    default:false
+    
+},
 // link: {//추가됨
 //   type: URL,
 //   required: true,
@@ -77,6 +102,7 @@ sale:{//true->판매등록, false -> 판매안함
   type:Boolean,
   require:true
 }
+
   
 })
 
