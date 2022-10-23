@@ -4,9 +4,12 @@ var createController = require('../../controllers/createController');
 //var nftController = require('../../controllers/NftController');
 
 //NFT만들기
-router.post('/', createController.createNFT.create)//,(req, res) => {
-//return ;
-//});
+
+
+router.post('/illustration', createController.createNFT.create);
+
+
+router.post('/pict', createController.createNFT.create);
 
  
 

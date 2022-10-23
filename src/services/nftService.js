@@ -8,7 +8,7 @@ module.exports = {
     //랭킹 1~100 NFT 가져오기
     getHotNFT: async () => {//rankingController에서 사용
         try{
-        const hotNft = await NFT.find({});
+        const hotNft = await NFT.find({likeCount:{ $gt: -1 } }).limit(100);//좋아요 수가 -1보다 큰것 100개이하로 검색
        
         return hotNft;
         }catch(err){
@@ -95,13 +95,16 @@ module.exports = {
         const nft = new NFT({
             title: titleT,
             //link: linkT,
-            artistId: "jee",
-            ownerId: "joo",
-            price: 3000,
-            genre: genreT,
-            theme: "good",
-            part: "hand",//근데 create 일반에선 필수
-            sale: sellT
+
+
+            artistId: "10월 17일",
+            ownerId: "10월 18일",
+            price: 30000,
+            genre: "이레즈미",
+            theme: "평화",
+            part: "목",//근데 create 일반에선 필수
+            sale: true
+ 
     
         
           });
@@ -119,6 +122,18 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    },
+    getNft: async (nftId) => {//detailController에서 사용
+        try{
+        const nft = await NFT.find({"_id" : nftId });//
+
+       
+        return nft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
     }
 
      
