@@ -1,5 +1,6 @@
 var NFT = require('../schemas/nft')
 var User = require('../schemas/user')
+var userService =require('./userService')
 
 
 
@@ -119,6 +120,23 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    },
+    plusNFTLike: async (nftId) => {//myPageController에서 사용
+        try{
+        //const myNft = await NFT.find({"ownerId" : account });//
+        const nft = NFT.find({_id:nftId});
+        const artist = nft.artistId;//만든 아티스트 좋아요도 증가해주기
+        const count=nft.likeCount;
+        await NFT.findByIdAndUpdate(nftId,{
+            likeCount: count+1
+        });
+       
+        userService.plusArtistLike(artist); //아티스트 아이디는 유저서비스에서 증가
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
     }
     //plusNftLike -> userService.plusArtistLike   이 방법밖에 없을지
 

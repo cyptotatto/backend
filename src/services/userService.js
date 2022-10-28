@@ -34,6 +34,22 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    },
+    plusArtistLike: async (artist) => {//myPageController에서 사용
+        try{
+            //더 간단한 방법 없는지 찾아보기
+            const user = await User.find({artistId : artist});
+            const count=user.likeCount;
+        
+            await User.findByIdAndUpdate(nftId,{
+                likeCount: count+1
+            });
+           
+           
+            }catch(err){
+                console.log(err);
+                throw err;
+            }
     }
 
 }
