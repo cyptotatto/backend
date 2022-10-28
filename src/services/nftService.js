@@ -96,6 +96,8 @@ module.exports = {
         const nft = new NFT({
             title: titleT,
             //link: linkT,
+
+
             artistId: "10월 17일",
             ownerId: "10월 18일",
             price: 30000,
@@ -103,6 +105,7 @@ module.exports = {
             theme: "평화",
             part: "목",//근데 create 일반에선 필수
             sale: true
+ 
     
         
           });
@@ -120,6 +123,18 @@ module.exports = {
             console.log(err);
             throw err;
         }
+    },
+    getNft: async (nftId) => {//detailController에서 사용
+        try{
+        const nft = await NFT.find({"_id" : nftId });//
+
+       
+        return nft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
     },
     plusNFTLike: async (nftId) => {//myPageController에서 사용
         try{
