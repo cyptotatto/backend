@@ -6,6 +6,32 @@ var transactionService = require('../services/transactionService');
 
 
 module.exports = {
+    //검색 전 페이지
+
+    //기본 정렬 최신순         인기순,최신순,가격낮은순,가격높은순
+    //도안Nft 가져오기 
+    getDesignNft: async (req, res) => {
+        try{
+       
+        const sort =req.params.sort; //정렬기준받기
+        const tattooNft =await nftService.getTattoNft(sort);//한번에 4개 검색한 순으로 보내는 것이 더 좋을까?
+        
+        
+       return res.status(200).json({
+            status:200,
+            message: "타투NFT가져오기 성공",
+            nft: tattooNft
+          
+        });
+    }catch(err)
+    {
+        console.log(err);
+        throw err;
+    }
+           
+    },
+
+    //검색 후 페이지
     getNftByGenre: async (req, res) => {
         try{
        

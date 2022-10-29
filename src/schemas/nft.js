@@ -71,7 +71,7 @@ ownerId: {
 },
 price: {
   type: Number,     // 자료형
-  required: true   // 필수 여부
+ 
   
   },
 likeCount: {//증가하면 user의 likeCount증가하게 해주어야한다.

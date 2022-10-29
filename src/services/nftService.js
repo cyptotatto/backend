@@ -6,6 +6,37 @@ var userService =require('./userService')
 
 
 module.exports = {
+    //타투 NFT 가져오기
+    getTattoNft: async (sort) => {//rankingController에서 사용
+        try{
+
+        let nft;
+        if(sort=="popularity")
+        {
+            nft=await NFT.find({likeCount:{ $gt: -1 } });
+            
+        }
+        else if(sort=="latest")
+        {
+            nft=await NFT.find().sort({createdAt:-1});
+        }
+        else if(sort=="highPrice")
+        {
+            nft=await NFT.find({price:{ $gt: -1 } });
+
+        }
+        else{//lowPrice
+
+            
+        }
+       
+        return nft;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
     //랭킹 1~100 NFT 가져오기
     getHotNFT: async () => {//rankingController에서 사용
         try{
