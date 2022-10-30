@@ -8,8 +8,10 @@ const { Schema } = mongoose;
  * isMint 민팅여부 
  * title
  * link
- * artistId
- * ownerId
+ * explanation
+ * tattooDesign  타투도안인지 타투사진인지 
+ * artistAccount
+ * ownerAccount
  * price
  * likeCount
  * genre
@@ -56,14 +58,20 @@ explanation:{
 type: String
 
 },
-artistId: { 
+tattooDesign :{
+  type: Boolean,  //true ->타투도안 , false-> 타투이미지
+  required:true,
+  default:true 
+  
+  },
+artistAccount: { 
       type: ObjectId,
       type:String,
       required: true,
       ref: 'User'      
         
   },
-ownerId: { 
+ownerAccount: { 
   type: ObjectId,
   type:String,
   ref: 'User'    

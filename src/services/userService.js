@@ -4,6 +4,29 @@ var utils = require('util');
 
  
 module.exports = {
+   //myPage에서 사용
+    getUser: async (userAccount) => {
+        try{
+        const userInformaion = await User.find({account:userAccount });
+        return userInformaion;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
+     //explore에서 사용
+    getSortedArtist: async () => {
+        try{
+        const artist = await User.find({likeCount:{ $gt: -1 } });
+        return artist;
+        }catch(err){
+            console.log(err);
+            throw err;
+        }
+
+    },
+    //home에서 사용
     getHotArtist: async () => {
         try{
         const HotArtist = await User.find({likeCount:{ $gt: -1 } }).limit(100);//좋아요 수가 -1보다 큰것 100개이하로 검색
@@ -38,7 +61,7 @@ module.exports = {
     plusArtistLike: async (artist) => {//myPageController에서 사용
         try{
             //더 간단한 방법 없는지 찾아보기
-            const user = await User.find({artistId : artist});
+            const user = await User.find({account : artist});
             const count=user.likeCount;
         
             await User.findByIdAndUpdate(nftId,{

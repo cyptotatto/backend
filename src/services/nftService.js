@@ -7,28 +7,23 @@ var userService =require('./userService')
 
 module.exports = {
     //타투 NFT 가져오기
-    getTattoNft: async (sort) => {//rankingController에서 사용
+    getSortedNft: async (tattooDesign) => {//rankingController에서 사용
         try{
-
-        let nft;
-        if(sort=="popularity")
-        {
-            nft=await NFT.find({likeCount:{ $gt: -1 } });
-            
-        }
-        else if(sort=="latest")
-        {
-            nft=await NFT.find().sort({createdAt:-1});
-        }
-        else if(sort=="highPrice")
-        {
-            nft=await NFT.find({price:{ $gt: -1 } });
-
-        }
-        else{//lowPrice
-
-            
-        }
+            // 프론트에서 필터링 시 이 코드 그대로 ,백에서 필터링 시 아래 검새코드하고 합치기
+        const nft =new Object() ;
+            if(tattooDesign)
+           { nft.popularity=await NFT.find( {tattooDesign:true,likeCount:{ $gt: -1 }});    
+            nft.latest=await NFT.find().sort({tattooDesign:true ,createdAt:-1});   
+            nft.highPrice=await NFT.find({tattooDesign:true ,price:{ $gt: -1 } });   
+           
+            }
+            else
+            {
+            nft.popularity=await NFT.find({tattooDesign:false,likeCount:{ $gt: -1 } });    
+            nft.latest=await NFT.find({tattooDesign:false}).sort({createdAt:-1});   
+            nft.highPrice=await NFT.find({tattooDesign:false,price:{ $gt: -1 } });   
+          
+            }
        
         return nft;
         }catch(err){
@@ -171,7 +166,7 @@ module.exports = {
         try{
         //const myNft = await NFT.find({"ownerId" : account });//
         const nft = NFT.find({_id:nftId});
-        const artist = nft.artistId;//만든 아티스트 좋아요도 증가해주기
+        const artist = nft.artistAccount;//만든 아티스트 좋아요도 증가해주기
         const count=nft.likeCount;
         await NFT.findByIdAndUpdate(nftId,{
             likeCount: count+1
@@ -186,50 +181,7 @@ module.exports = {
     }
     //plusNftLike -> userService.plusArtistLike   이 방법밖에 없을지
 
-     
-    
-    //
-    //    mintingNft
-    //nft를 db에 저장
 
-    
-    //,
-    
-    // getHotNFT2: async () => {
-    //     try{
-    //     const hotNft = await NFT.find({});
-    //     console.log(hotNft);
-    //     return hotNft;
-    //     }catch(err){
-    //         console.log(err);
-    //         throw err;
-    //     }
-
-    // }  
-    // exports.getUsers = async function (query, page, limit) {
-
-//     try {
-//         var users = await User.find(query)
-//         return users;
-//     } catch (e) {
-//         // Log Errors
-//         throw Error('Error while Paginating Users')
-//     }
-// }
-
-// module.exports = {
-//     getHotNFT:function(req,res){
-        
-//         NFT.find()
-//         .then((nfts) => {
-//         return nfts;
-//         })
-//         .catch((err) => {
-//         console.error(err);
-//         next(err);
-//         })
-//     }
-// }
 };
 
  
@@ -237,11 +189,3 @@ module.exports = {
 
 
 
-
-//create(){
-
-// createNFT(){
-//   createController.save(this.body)
-//}
-    
-// };

@@ -9,18 +9,24 @@ module.exports = {
     //검색 전 페이지
 
     //기본 정렬 최신순         인기순,최신순,가격낮은순,가격높은순
-    //도안Nft 가져오기 
-    getDesignNft: async (req, res) => {
+    //도안,이미지 Nft 가져오기 
+    getSortedItem: async (req, res) => {
         try{
        
-        const sort =req.params.sort; //정렬기준받기
-        const tattooNft =await nftService.getTattoNft(sort);//한번에 4개 검색한 순으로 보내는 것이 더 좋을까?
-        
+     
+        //인기순, 최신순, 가격 낮은 순만 반환 (높은순은 낮은순 역순으로 해서 사용)
+        const tattooNft =await nftService.getSortedNft(true);
+        const imageNft =await nftService.getSortedNft(false);
+        const user =await userService.getSortedArtist();
+
         
        return res.status(200).json({
             status:200,
             message: "타투NFT가져오기 성공",
-            nft: tattooNft
+            tattooDesign: tattooNft,
+            tattooImage:imageNft,
+            artist:user
+
           
         });
     }catch(err)
@@ -30,7 +36,7 @@ module.exports = {
     }
            
     },
-
+   
     //검색 후 페이지
     getNftByGenre: async (req, res) => {
         try{
