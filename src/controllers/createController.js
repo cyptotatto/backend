@@ -5,9 +5,9 @@ const Nft = require('../schemas/nft');
 
 
 
-const createNFT = {
+const createNFT1 = {
 
-create: (req, res) => {
+create: async (req, res) => {
 
     try{
 
@@ -15,16 +15,19 @@ create: (req, res) => {
     const title = req.body.title;
     const link = null;
     const genre = req.body.genre;
+    const part = req.body.part;
     const sell = req.body.sale;
      
     console.log(sell);
 
-    nftService.mintNFT(fileUpload, title, link, genre, sell);
+    await nftService.mintNFT(fileUpload, title, link, genre, part, sell);
 
     return res.status(200).json({
     status:200,
-    message: "create 성공"
+    message: "create 성공",
+    sell: sell// 프론트에서 보낸값을 받아줌
      });
+
 
     } catch(err)
     {
@@ -34,11 +37,55 @@ create: (req, res) => {
      
 
 }
-};
+
+
+}
+const createNFT2 = {
+
+    create: async (req, res) => {
+    
+        try{
+    
+        const fileUpload= req.body.fileUpload;
+        const title = req.body.title;
+        const link = null;
+        const genre = req.body.genre;
+        const sell = req.body.sale;
+         
+        console.log(sell);
+    
+        await nftService.mintNFT(fileUpload, title, link, genre, sell);
+    
+        return res.status(200).json({
+        status:200,
+        message: "create 성공",
+        sell: sell// 프론트에서 보낸값을 받아줌
+
+         });
+    
+        } catch(err)
+        {
+        console.log(err);
+        throw err;
+        }
+         
+    
+    }
+    
+    
+    };
+
+
+
+
+
+
+
 
 module.exports = {
     
-createNFT
+createNFT1,
+createNFT2
            
 };
 
