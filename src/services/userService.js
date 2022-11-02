@@ -1,109 +1,97 @@
-const user = require('../schemas/user');
-var User = require('../schemas/user');
-var utils = require('util');
+const user = require("../models/user");
+var User = require("../models/user");
+var utils = require("util");
 
- 
 module.exports = {
-   //myPage에서 사용
-    getUser: async (userAccount) => {
-        try{
-        const userInformaion = await User.find({account:userAccount });
-        return userInformaion;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-
-    },
-     //explore에서 사용
-    getSortedArtist: async () => {
-        try{
-        const artist = await User.find({likeCount:{ $gt: -1 } });
-        return artist;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-
-    },
-    //home에서 사용
-    getHotArtist: async () => {
-        try{
-        const HotArtist = await User.find({likeCount:{ $gt: -1 } }).limit(100);//좋아요 수가 -1보다 큰것 100개이하로 검색
-        return HotArtist;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-
-    },
-    getUserAccount: async (userName) => {
-        try{
-        const HotArtist = await User.findOne({"name":userName});
-        return HotArtist.account.toString;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-
-    },
-    //explore : 아티스트 검색 : 장르별 (1개)
-    searchArtistByGenre: async (artistGenre) => {//myPageController에서 사용
-        try{
-        const artist = await User.find({"genre": artistGenre});
-      
-        return artist;
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
-    },
-    plusArtistLike: async (artist) => {//myPageController에서 사용
-        try{
-            //더 간단한 방법 없는지 찾아보기
-            const user = await User.find({account : artist});
-            const count=user.likeCount;
-        
-            await User.findByIdAndUpdate(nftId,{
-                likeCount: count+1
-            });
-           
-           
-            }catch(err){
-                console.log(err);
-                throw err;
-            }
+  //myPage에서 사용
+  getUser: async (userAccount) => {
+    try {
+      const userInformaion = await User.find({ account: userAccount });
+      return userInformaion;
+    } catch (err) {
+      console.log(err);
+      throw err;
     }
+  },
+  //explore에서 사용
+  getSortedArtist: async () => {
+    try {
+      const artist = await User.find({ likeCount: { $gt: -1 } });
+      return artist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  //home에서 사용
+  getHotArtist: async () => {
+    try {
+      const HotArtist = await User.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
+      return HotArtist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  getUserAccount: async (userName) => {
+    try {
+      const HotArtist = await User.findOne({ name: userName });
+      return HotArtist.account.toString;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  //explore : 아티스트 검색 : 장르별 (1개)
+  searchArtistByGenre: async (artistGenre) => {
+    //myPageController에서 사용
+    try {
+      const artist = await User.find({ genre: artistGenre });
 
-}
+      return artist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  plusArtistLike: async (artist) => {
+    //myPageController에서 사용
+    try {
+      //더 간단한 방법 없는지 찾아보기
+      const user = await User.find({ account: artist });
+      const count = user.likeCount;
+
+      await User.findByIdAndUpdate(nftId, {
+        likeCount: count + 1,
+      });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+};
 //plusArtistLike
-    
 
+// return new Promise(async (resolve, reject) => {
+//     const HotArtist = await User.find({});
+//     console.log("service "+HotArtist );
+//     if(HotArtist.length == 0) {
+//         resolve({
+//             json: utils.successFalse(sc.NO_CONTENT, rm.CITY_EMPTY)
+//         });
+//         return;
+//     }
+//     if (!HotArtist) {
+//         resolve({
+//             json: utils.successFalse(sc.INTERNAL_SERVER_ERROR, rm.CITY_READ_ALL_FAIL)
+//         });
+//         return;
+//     }
+//     resolve({
+//         json: utils.successTrue(sc.SUCCESS, rm.CITY_READ_ALL_SUCCESS, HotArtist)
 
-
-
- 
-        // return new Promise(async (resolve, reject) => {
-        //     const HotArtist = await User.find({});
-        //     console.log("service "+HotArtist );
-        //     if(HotArtist.length == 0) {
-        //         resolve({
-        //             json: utils.successFalse(sc.NO_CONTENT, rm.CITY_EMPTY)
-        //         });
-        //         return;
-        //     }
-        //     if (!HotArtist) {
-        //         resolve({
-        //             json: utils.successFalse(sc.INTERNAL_SERVER_ERROR, rm.CITY_READ_ALL_FAIL)
-        //         });
-        //         return;
-        //     }
-        //     resolve({
-        //         json: utils.successTrue(sc.SUCCESS, rm.CITY_READ_ALL_SUCCESS, HotArtist)
-               
-        //     });
-        // });
-    
+//     });
+// });
 
 // module.exports = {
 
@@ -121,11 +109,11 @@ module.exports = {
 //     })
 //     return user;
 //     }
- 
+
 // }
 
 // exports.getHotArtist = async()=>{
-   
+
 //     User.find()
 //     .then((users) => {
 //   //async  console.log("service "+users );
@@ -137,7 +125,7 @@ module.exports = {
 //     })
 // }
 // exports.getHotArtist = function(){
-   
+
 //     User.find()
 //     .then((users) => {
 //     console.log("service "+users );
@@ -148,7 +136,6 @@ module.exports = {
 //     next(err);
 //     })
 //}
-
 
 // exports.getHotArtis = async (boardId) => {
 //     try {
@@ -180,7 +167,7 @@ module.exports = {
 //     //         "artist": 1,
 //     //         "genre": ["이레즈미" , "블랙워크"]
 //     //     };
-       
+
 //         User.find()
 //         .then((users) => {
 //        // console.log("service "+users );
@@ -191,10 +178,8 @@ module.exports = {
 //         console.error(err);
 //         next(err);
 //         })
-        
 
 //     }
-
 
 //     isLogin:function(req, res) {
 //         return req.session.is_logined;
@@ -206,8 +191,6 @@ module.exports = {
 //         }
 //         return loginStatusUI;
 //     }
-
-
 
 // const pool = require('../database/pool')
 // const BoardQuery = require('../queries/board-query')
@@ -244,7 +227,6 @@ module.exports = {
 //         conn.release()
 //     }
 // }
-
 
 // exports.getUsers = async function (query, page, limit) {
 

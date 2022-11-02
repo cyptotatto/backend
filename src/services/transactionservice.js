@@ -1,41 +1,38 @@
-var Transaction =require('../schemas/transaction')
-var User = require('../schemas/user');
-var utils = require('util');
+var Transaction = require("../models/transaction");
+var User = require("../models/user");
+var utils = require("util");
 
- 
-module.exports = {  
-    getSoldNFT: async (account) => {
-        try{
-        const soldNft = await Transaction.find({"sellerAccount":account});
-        return soldNft;//rankingController의 getHotItem으로 반환
-        }catch(err){
-            console.log(err);
-            throw err;
-        }
+module.exports = {
+  getSoldNFT: async (account) => {
+    try {
+      const soldNft = await Transaction.find({ sellerAccount: account });
+      return soldNft; //rankingController의 getHotItem으로 반환
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
+};
+// return new Promise(async (resolve, reject) => {
+//     const HotArtist = await User.find({});
+//     console.log("service "+HotArtist );
+//     if(HotArtist.length == 0) {
+//         resolve({
+//             json: utils.successFalse(sc.NO_CONTENT, rm.CITY_EMPTY)
+//         });
+//         return;
+//     }
+//     if (!HotArtist) {
+//         resolve({
+//             json: utils.successFalse(sc.INTERNAL_SERVER_ERROR, rm.CITY_READ_ALL_FAIL)
+//         });
+//         return;
+//     }
+//     resolve({
+//         json: utils.successTrue(sc.SUCCESS, rm.CITY_READ_ALL_SUCCESS, HotArtist)
 
-    }   
-}
-        // return new Promise(async (resolve, reject) => {
-        //     const HotArtist = await User.find({});
-        //     console.log("service "+HotArtist );
-        //     if(HotArtist.length == 0) {
-        //         resolve({
-        //             json: utils.successFalse(sc.NO_CONTENT, rm.CITY_EMPTY)
-        //         });
-        //         return;
-        //     }
-        //     if (!HotArtist) {
-        //         resolve({
-        //             json: utils.successFalse(sc.INTERNAL_SERVER_ERROR, rm.CITY_READ_ALL_FAIL)
-        //         });
-        //         return;
-        //     }
-        //     resolve({
-        //         json: utils.successTrue(sc.SUCCESS, rm.CITY_READ_ALL_SUCCESS, HotArtist)
-               
-        //     });
-        // });
-    
+//     });
+// });
 
 // module.exports = {
 
@@ -53,11 +50,11 @@ module.exports = {
 //     })
 //     return user;
 //     }
- 
+
 // }
 
 // exports.getHotArtist = async()=>{
-   
+
 //     User.find()
 //     .then((users) => {
 //   //async  console.log("service "+users );
@@ -69,7 +66,7 @@ module.exports = {
 //     })
 // }
 // exports.getHotArtist = function(){
-   
+
 //     User.find()
 //     .then((users) => {
 //     console.log("service "+users );
@@ -80,7 +77,6 @@ module.exports = {
 //     next(err);
 //     })
 //}
-
 
 // exports.getHotArtis = async (boardId) => {
 //     try {
@@ -112,7 +108,7 @@ module.exports = {
 //     //         "artist": 1,
 //     //         "genre": ["이레즈미" , "블랙워크"]
 //     //     };
-       
+
 //         User.find()
 //         .then((users) => {
 //        // console.log("service "+users );
@@ -123,10 +119,8 @@ module.exports = {
 //         console.error(err);
 //         next(err);
 //         })
-        
 
 //     }
-
 
 //     isLogin:function(req, res) {
 //         return req.session.is_logined;
@@ -138,8 +132,6 @@ module.exports = {
 //         }
 //         return loginStatusUI;
 //     }
-
-
 
 // const pool = require('../database/pool')
 // const BoardQuery = require('../queries/board-query')
@@ -177,7 +169,6 @@ module.exports = {
 //     }
 // }
 
-
 // exports.getUsers = async function (query, page, limit) {
 
 //     try {
@@ -188,5 +179,3 @@ module.exports = {
 //         throw Error('Error while Paginating Users')
 //     }
 // }
-
-
