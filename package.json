@@ -1,7 +1,6 @@
 {
   "name": "practice",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app.js"
@@ -19,5 +18,17 @@
     "nodemon": "^2.0.20",
     "package.json": "^2.0.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyptotatto/backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyptotatto/backend/issues"
+  },
+  "homepage": "https://github.com/cyptotatto/backend#readme",
+  "description": ""
 }
