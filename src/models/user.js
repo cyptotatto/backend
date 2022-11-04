@@ -4,6 +4,8 @@ const { Schema } = mongoose;
 /**
  * account
  * name
+ * profile
+ * emailAddress
  * artist  아티스트인지 일반 사용자인지 여부
  * likeCount
  * genre
@@ -21,6 +23,14 @@ const userSchema = new Schema({
     type:String,
     required: true,
     unique:true
+  },
+  profile:{
+    type:String,
+    unique:true
+  },
+  email:{
+    type:String
+    
   },
 
   artist: {//0은 일반 사용자 1은 아티스트

@@ -12,10 +12,7 @@ const getSortedItem = async (req, res) => {
     const tattooNft = await nftService.getSortedNft(true);
     const imageNft = await nftService.getSortedNft(false);
     const user = await userService.getSortedArtist();
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+  
   return res.status(200).json({
     status: 200,
     message: '타투NFT가져오기 성공',
@@ -23,6 +20,10 @@ const getSortedItem = async (req, res) => {
     tattooImage: imageNft,
     artist: user,
   });
+} catch (err) {
+  console.log(err);
+  throw err;
+}
 };
 
 //검색 후 페이지

@@ -13,6 +13,20 @@ module.exports = {
       throw err;
     }
   },
+  //edit
+  setUser:async (userAccount,nickname,profileIntro,emailAddress,tattooGenre) => {
+    try {
+     // const userInformaion = await User.find({ account: userAccount });
+     await  User.updateOne( { account : userAccount }, {$set : { name : nickname , profile : profileIntro ,email:emailAddress,genre:tattooGenre}},function(err,res){ 
+        if(err){ throw error; } 
+        console.log("1 document 수정 완료.");
+         });
+     
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  },
   //explore에서 사용
   getSortedArtist: async () => {
     try {
