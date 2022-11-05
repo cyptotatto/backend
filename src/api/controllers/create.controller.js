@@ -1,7 +1,7 @@
-const userService = require("../services/userService");
-const nftService = require("../services/nftService");
-const User = require("../models/user");
-const Nft = require("../models/nft");
+const userService = require('../services/userService');
+const nftService = require('../services/nftService');
+const User = require('../models/user');
+const Nft = require('../models/nft');
 
 const createNFT1 = {
   create: async (req, res) => {
@@ -19,7 +19,7 @@ const createNFT1 = {
 
       return res.status(200).json({
         status: 200,
-        message: "create 성공",
+        message: 'create 성공',
         sell: sell, // 프론트에서 보낸값을 받아줌
       });
     } catch (err) {
@@ -43,7 +43,7 @@ const createNFT2 = {
 
       return res.status(200).json({
         status: 200,
-        message: "create 성공",
+        message: 'create 성공',
         sell: sell, // 프론트에서 보낸값을 받아줌
       });
     } catch (err) {

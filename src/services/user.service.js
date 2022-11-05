@@ -1,10 +1,10 @@
-const user = require("../models/user");
-var User = require("../models/user");
-var utils = require("util");
+const user = require('../models/user');
+var User = require('../models/user');
+var utils = require('util');
 
 module.exports = {
   //myPage에서 사용
-  getUser: async (userAccount) => {
+  getUser: async userAccount => {
     try {
       const userInformaion = await User.find({ account: userAccount });
       return userInformaion;
@@ -14,14 +14,32 @@ module.exports = {
     }
   },
   //edit
-  setUser:async (userAccount,nickname,profileIntro,emailAddress,tattooGenre) => {
+  setUser: async (
+    userAccount,
+    nickname,
+    profileIntro,
+    emailAddress,
+    tattooGenre,
+  ) => {
     try {
-     // const userInformaion = await User.find({ account: userAccount });
-     await  User.updateOne( { account : userAccount }, {$set : { name : nickname , profile : profileIntro ,email:emailAddress,genre:tattooGenre}},function(err,res){ 
-        if(err){ throw error; } 
-        console.log("1 document 수정 완료.");
-         });
-     
+      // const userInformaion = await User.find({ account: userAccount });
+      await User.updateOne(
+        { account: userAccount },
+        {
+          $set: {
+            name: nickname,
+            profile: profileIntro,
+            email: emailAddress,
+            genre: tattooGenre,
+          },
+        },
+        function (err, res) {
+          if (err) {
+            throw error;
+          }
+          console.log('1 document 수정 완료.');
+        },
+      );
     } catch (err) {
       console.log(err);
       throw err;
@@ -47,7 +65,7 @@ module.exports = {
       throw err;
     }
   },
-  getUserAccount: async (userName) => {
+  getUserAccount: async userName => {
     try {
       const HotArtist = await User.findOne({ name: userName });
       return HotArtist.account.toString;
@@ -57,7 +75,7 @@ module.exports = {
     }
   },
   //explore : 아티스트 검색 : 장르별 (1개)
-  searchArtistByGenre: async (artistGenre) => {
+  searchArtistByGenre: async artistGenre => {
     //myPageController에서 사용
     try {
       const artist = await User.find({ genre: artistGenre });
@@ -68,7 +86,7 @@ module.exports = {
       throw err;
     }
   },
-  plusArtistLike: async (artist) => {
+  plusArtistLike: async artist => {
     //myPageController에서 사용
     try {
       //더 간단한 방법 없는지 찾아보기

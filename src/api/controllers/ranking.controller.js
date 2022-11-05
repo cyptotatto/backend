@@ -1,7 +1,7 @@
-var userService = require("../services/userService");
-var nftService = require("../services/nftService");
-const User = require("../models/user");
-const Nft = require("../models/nft");
+var userService = require('../services/userService');
+var nftService = require('../services/nftService');
+const User = require('../models/user');
+const Nft = require('../models/nft');
 
 module.exports = {
   getHotItem: async (req, res) => {
@@ -11,7 +11,7 @@ module.exports = {
 
       return res.status(200).json({
         status: 200,
-        message: "랭킹 가져오기 성공",
+        message: '랭킹 가져오기 성공',
         // data: nftRanking
         artistTop100: artistRanking,
         nftTop100: nftRanking,

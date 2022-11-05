@@ -10,7 +10,7 @@
 //   account: {
 //     type: String,     // 자료형
 //     required: true,   // 필수 여부
-  
+
 //   },
 //   createdAt: {
 //     type: Date,

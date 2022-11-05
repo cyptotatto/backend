@@ -1,10 +1,10 @@
-var NFT = require("../models/nft");
-var User = require("../models/user");
-var userService = require("./userService");
+var NFT = require('../models/nft');
+var User = require('../models/user');
+var userService = require('./userService');
 
 module.exports = {
   //타투 NFT 가져오기
-  getSortedNft: async (tattooDesign) => {
+  getSortedNft: async tattooDesign => {
     //rankingController에서 사용
     try {
       // 프론트에서 필터링 시 이 코드 그대로 ,백에서 필터링 시 아래 검새코드하고 합치기
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
   //소유한 NFT가져오기
-  getOwnNFT: async (account) => {
+  getOwnNFT: async account => {
     //myPageController에서 사용
     try {
       const myNft = await NFT.find({ ownerId: account }); //
@@ -67,7 +67,7 @@ module.exports = {
     }
   },
   //만든 NFT 가져오기
-  getMadeNFT: async (account) => {
+  getMadeNFT: async account => {
     //myPageController에서 사용
     try {
       const madeNft = await NFT.find({ artistId: account });
@@ -81,7 +81,7 @@ module.exports = {
   //explore에서 사용할 로직
 
   //도안 검색 : 장르별
-  searchNftByGenre: async (nftGenre) => {
+  searchNftByGenre: async nftGenre => {
     //myPageController에서 사용
     try {
       const genreNft = await NFT.find({ genre: nftGenre, sale: true });
@@ -94,7 +94,7 @@ module.exports = {
   },
 
   //도안 검색 : 주제별
-  searchNftByTheme: async (nftTheme) => {
+  searchNftByTheme: async nftTheme => {
     //myPageController에서 사용
     try {
       const themeNft = await NFT.find({ theme: nftTheme, sale: true });
@@ -106,7 +106,7 @@ module.exports = {
     }
   },
   //도안 검색 : 부위별
-  searchNftByPart: async (nftPart) => {
+  searchNftByPart: async nftPart => {
     //myPageController에서 사용
     try {
       const partNft = await NFT.find({ part: nftPart, sale: true });
@@ -141,21 +141,21 @@ module.exports = {
         title: titleT,
         //link: linkT,
 
-        artistId: "10월 17일",
-        ownerId: "10월 18일",
+        artistId: '10월 17일',
+        ownerId: '10월 18일',
         price: 30000,
-        genre: "이레즈미",
-        theme: "평화",
-        part: "목", //근데 create 일반에선 필수
+        genre: '이레즈미',
+        theme: '평화',
+        part: '목', //근데 create 일반에선 필수
         sale: true,
       });
 
       nft
         .save()
-        .then((result) => {
+        .then(result => {
           return result;
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           next(err);
         });
@@ -164,7 +164,7 @@ module.exports = {
       throw err;
     }
   },
-  getNft: async (nftId) => {
+  getNft: async nftId => {
     //detailController에서 사용
     try {
       const nft = await NFT.find({ _id: nftId }); //
@@ -175,7 +175,7 @@ module.exports = {
       throw err;
     }
   },
-  plusNFTLike: async (nftId) => {
+  plusNFTLike: async nftId => {
     //myPageController에서 사용
     try {
       //const myNft = await NFT.find({"ownerId" : account });//

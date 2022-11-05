@@ -1,9 +1,9 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
-import detailController from "../controllers/detailController.js";
+import detailController from '../controllers/detailController.js';
 
-router.get("/nft", detailController.getNftDetail);
+router.get('/nft', detailController.getNftDetail);
 
-router.get("/artist", detailController.getArtistDetail);
+router.get('/artist', detailController.getArtistDetail);
 
 module.exports = router;

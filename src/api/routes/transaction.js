@@ -1,9 +1,7 @@
-
 //api테스트용
 // const express = require('express');
 // const router = express.Router();
 // const Transaction = require('../../schemas/transaction');
-
 
 // /**
 //  * buyerAccount
@@ -24,7 +22,7 @@
 //   console.log(transaction);
 //    transaction.save()
 //     .then((result) => {
-    
+
 //       res.json(result);
 //     })
 //     .catch((err) => {
@@ -37,10 +35,10 @@
 // //또 무엇으로 조회 해야할까
 
 // router.get('/list',function(req,res){
-  
+
 //      Transaction.find({"sellerAccount" : req.body.sellerAccount})
 //     .then((transaction) => {
-   
+
 //       res.json(transaction);
 //     })
 //     .catch((err) => {
@@ -48,10 +46,6 @@
 //       next(err);
 //     })
 // });
-
-
-
-
 
 // //거래 기록을 업데이트하고 삭제하는 기능이 필요할까?
 

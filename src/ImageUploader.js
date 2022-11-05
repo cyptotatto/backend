@@ -26,46 +26,41 @@ exports.upload = multer({
     storage: storage // storage를 multer_s3 객체로 지정
 })***/
 
- 
 // // import AWS from 'aws-sdk'
 // // import multer from 'multer'
 // // import multerS3 from 'multer-s3'
 // // import path from 'path'
 const AWS = require('aws-sdk');
-const  multer = require('multer');
-const  multerS3 = require('multer-S3');
-const  path = require('path');
-
-
-
+const multer = require('multer');
+const multerS3 = require('multer-S3');
+const path = require('path');
 
 AWS.config.update({
-    region: 'ap-northeast-2',
-    accessKeyId : 'AKIAZAOZ6H7DXNRF5MTW',
-    secretAccessKey : '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' ,
+  region: 'ap-northeast-2',
+  accessKeyId: 'AKIAZAOZ6H7DXNRF5MTW',
+  secretAccessKey: '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',
 });
 
- const s3 =new AWS.S3()
+const s3 = new AWS.S3();
 
- const allowedExtensions = ['.png','.jpg','.jpeg','.bmp']
+const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp'];
 
-const upload =multer({
-    storage: multerS3({
-        s3: s3,
-        bucket: 'cryp-tattoo',
-        key: (req, file, callback) =>{
-            const uploadDirectory = req.query.directory ?? ''//업로드할 디렉토리를 설정하기
-            const extension = path.extname(file.originalname)
-            if(!allowedExtensions.includes(extension)){
-                return callback(new Error('wrong extention'))
-            }
-           // callback(null,'${uploadDirectory}/${Date.now()}_${file.originalname}')
-            callback(null,`contents/${Date.now()}_${file.originalname}`)
-
-        },
-        acl: 'public-read-write'
-    }),
-})
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'cryp-tattoo',
+    key: (req, file, callback) => {
+      const uploadDirectory = req.query.directory ?? ''; //업로드할 디렉토리를 설정하기
+      const extension = path.extname(file.originalname);
+      if (!allowedExtensions.includes(extension)) {
+        return callback(new Error('wrong extention'));
+      }
+      // callback(null,'${uploadDirectory}/${Date.now()}_${file.originalname}')
+      callback(null, `contents/${Date.now()}_${file.originalname}`);
+    },
+    acl: 'public-read-write',
+  }),
+});
 
 //  //export default imageUploader
 // //  exports.upload = multer({
@@ -73,10 +68,7 @@ const upload =multer({
 // // })
 // module.exports =  imageUploader;
 
-
-
 //
-
 
 // const multer = require('multer');
 // const multerS3 = require('multer-s3');
@@ -97,11 +89,3 @@ const upload =multer({
 // });
 module.exports = upload;
 //export default upload;
-
-
-
-
-
-
-
-

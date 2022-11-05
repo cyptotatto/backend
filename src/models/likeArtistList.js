@@ -6,7 +6,7 @@
 
 //  const { Types: ObjectId } = Schema();
 //  /**
-//   * account 
+//   * account
 //   * artist
 //   * createdAt
 //   */
@@ -16,9 +16,9 @@
 //     required: true,   // 필수 여부
 //     ref:'User'
 //   },
-  
+
 // artist: [{
-  
+
 //     artistId:{
 //     type:ObjectId,
 //     ref:'User',

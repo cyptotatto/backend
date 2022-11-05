@@ -1,9 +1,9 @@
-var Transaction = require("../models/transaction");
-var User = require("../models/user");
-var utils = require("util");
+var Transaction = require('../models/transaction');
+var User = require('../models/user');
+var utils = require('util');
 
 module.exports = {
-  getSoldNFT: async (account) => {
+  getSoldNFT: async account => {
     try {
       const soldNft = await Transaction.find({ sellerAccount: account });
       return soldNft; //rankingController의 getHotItem으로 반환

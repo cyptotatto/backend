@@ -1,8 +1,8 @@
-var likeItemList = require("../models/likeItemList");
-var utils = require("util");
+var likeItemList = require('../models/likeItemList');
+var utils = require('util');
 
 module.exports = {
-  getLikeNFT: async (account) => {
+  getLikeNFT: async account => {
     try {
       const likeNft = await likeItemList.find({ userAccount: account });
       return likeNft;
