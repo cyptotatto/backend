@@ -107,4 +107,5 @@ const nftSchema = new Schema({
 });
 
 //module.exports = mongoose.model('NFT', nftSchema);
-module.exports = mongoose.models['NFT'] || mongoose.model('NFT', nftSchema);
+//module.exports = mongoose.models['NFT'] || mongoose.model('NFT', nftSchema);
+export default nftSchema;

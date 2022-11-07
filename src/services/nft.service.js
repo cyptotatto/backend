@@ -1,6 +1,6 @@
-import NFT from '../models/nft';
-import User from'../models/user';
-import userService from '../services/user.service';
+import NFT from '../models/nft.js';
+import User from'../models/user.js';
+import userService from '../services/user.service.js';
 
 module.exports = {
   //타투 NFT 가져오기

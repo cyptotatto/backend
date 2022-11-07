@@ -1,9 +1,11 @@
 import express from 'express';
-const router = express.Router();
+const homeRouter= express.Router();
+//let rankingController =require('../controllers/ranking.controller.js');
 
-import rankingController from '../controllers/ranking.controller';
+import * as rankingController from '../controllers/ranking.controller.js';
 
 //도안 hot 100, 아티스트 hot 100 반환
-router.get('/', rankingController.getHotItem); //,(req, res));
+homeRouter.get('/', rankingController.getHotItem); //,(req, res));
 
-module.exports = router;
+//module.exports = router;
+export default homeRouter;

@@ -1,9 +1,10 @@
 
-import User from'../models/user';
-let utils = require('util');
+import User from'../models/user.js';
+//let utils = require('util');
 
-module.exports = {
+//module.exports = {
   //myPage에서 사용
+  const userService={
   getUser: async userAccount => {
     try {
       const userInformaion = await User.find({ account: userAccount });
@@ -100,8 +101,11 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-};
+  }
+}
+
+export default userService;
+//};
 //plusArtistLike
 
 // return new Promise(async (resolve, reject) => {
