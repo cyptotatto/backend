@@ -5,105 +5,106 @@ import User from'../models/user.js';
 //module.exports = {
   //myPage에서 사용
   const userService={
-  getUser: async userAccount => {
-    try {
-      const userInformaion = await User.find({ account: userAccount });
-      return userInformaion;
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
-  //edit
-  setUser: async (
-    userAccount,
-    nickname,
-    profileIntro,
-    emailAddress,
-    tattooGenre,
-  ) => {
-    try {
-      // const userInformaion = await User.find({ account: userAccount });
-      await User.updateOne(
-        { account: userAccount },
-        {
-          $set: {
-            name: nickname,
-            profile: profileIntro,
-            email: emailAddress,
-            genre: tattooGenre,
-          },
-        },
-        function (err, res) {
-          if (err) {
-            throw error;
-          }
-          console.log('1 document 수정 완료.');
-        },
-      );
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
-  //explore에서 사용
-  getSortedArtist: async () => {
-    try {
-      const artist = await User.find({ likeCount: { $gt: -1 } });
-      return artist;
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
+  // getUser: async userAccount => {
+  //   try {
+  //     const userInformaion = await User.find({ account: userAccount });
+  //     return userInformaion;
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // },
+  // //edit
+  // setUser: async (
+  //   userAccount,
+  //   nickname,
+  //   profileIntro,
+  //   emailAddress,
+  //   tattooGenre,
+  // ) => {
+  //   try {
+  //     // const userInformaion = await User.find({ account: userAccount });
+  //     await User.updateOne(
+  //       { account: userAccount },
+  //       {
+  //         $set: {
+  //           name: nickname,
+  //           profile: profileIntro,
+  //           email: emailAddress,
+  //           genre: tattooGenre,
+  //         },
+  //       },
+  //       function (err, res) {
+  //         if (err) {
+  //           throw error;
+  //         }
+  //         console.log('1 document 수정 완료.');
+  //       },
+  //     );
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // },
+  // //explore에서 사용
+  // getSortedArtist: async () => {
+  //   try {
+  //     const artist = await User.find({ likeCount: { $gt: -1 } });
+  //     return artist;
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // },
   //home에서 사용
   getHotArtist: async () => {
     try {
-      const HotArtist = await User.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
+      const HotArtist =  await User.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
+      console.log(HotArtist);
       return HotArtist;
     } catch (err) {
       console.log(err);
       throw err;
     }
-  },
-  getUserAccount: async userName => {
-    try {
-      const HotArtist = await User.findOne({ name: userName });
-      return HotArtist.account.toString;
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
-  //explore : 아티스트 검색 : 장르별 (1개)
-  searchArtistByGenre: async artistGenre => {
-    //myPageController에서 사용
-    try {
-      const artist = await User.find({ genre: artistGenre });
+  // },
+  // getUserAccount: async userName => {
+  //   try {
+  //     const HotArtist = await User.findOne({ name: userName });
+  //     return HotArtist.account.toString;
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // },
+  // //explore : 아티스트 검색 : 장르별 (1개)
+  // searchArtistByGenre: async artistGenre => {
+  //   //myPageController에서 사용
+  //   try {
+  //     const artist = await User.find({ genre: artistGenre });
 
-      return artist;
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
-  plusArtistLike: async artist => {
-    //myPageController에서 사용
-    try {
-      //더 간단한 방법 없는지 찾아보기
-      const user = await User.find({ account: artist });
-      const count = user.likeCount;
+  //     return artist;
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // },
+  // plusArtistLike: async artist => {
+  //   //myPageController에서 사용
+  //   try {
+  //     //더 간단한 방법 없는지 찾아보기
+  //     const user = await User.find({ account: artist });
+  //     const count = user.likeCount;
 
-      await User.findByIdAndUpdate(nftId, {
-        likeCount: count + 1,
-      });
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  }
+  //     await User.findByIdAndUpdate(nftId, {
+  //       likeCount: count + 1,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // }
 }
-
+  }
 export default userService;
 //};
 //plusArtistLike

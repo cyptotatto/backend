@@ -3,6 +3,7 @@ import config from "../config/index.js";
 
 export async function connectDB() {
   return mongoose.connect(config.db.url, {
+    dbName: 'chichi',
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
