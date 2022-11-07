@@ -1,7 +1,8 @@
-const userService = require('../services/userService');
-const nftService = require('../services/nftService');
-const User = require('../models/user');
-const Nft = require('../models/nft');
+import userService from '../../services/user.service.js';
+import nftService from '../../services/nft.service.js';
+import User from '../../models/user';
+import Nft from '../../models/nft' ;
+
 
 const createNFT1 = {
   create: async (req, res) => {

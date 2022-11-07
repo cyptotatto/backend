@@ -1,8 +1,7 @@
 //api 테스트용
-
-const express = require("express");
+import express from 'express';
 const router = express.Router();
-const NFT = require("../../models/nft");
+import NFT from "../../models/nft";
 
 /**
  * title

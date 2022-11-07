@@ -1,8 +1,7 @@
 // api 테스트용
-
-const express = require('express');
-const router = express.Router();
-const User = require('../../schemas/user');
+import express from 'express';
+let router = express.Router();
+import User from '../../models/user';
 
 // 유저 생성 http://localhost:5000/users/add
 

@@ -1,6 +1,7 @@
-const express = require('express');
-const router = express.Router();
-var exploreController = require('../../controllers/exploreController');
+import express from 'express';
+
+let router = express.Router();
+import exploreController from '../controllers/explore.controller';
 
 //검색하기 전 페이지
 //기본 정렬 최신순

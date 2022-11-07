@@ -1,7 +1,9 @@
-var userService = require('../../services/user.service');
-var nftService = require('../../services/nft.service');
-var transactionService = require('../../services/transaction.service');
-var likeItemService = require('../../services/likeItem.service');
+import userService from '../../services/user.service.js';
+import nftService from '../../services/nft.service.js';
+import transactionService from '../../services/transaction.service.js';
+import likeItemService from '../../services/likeItem.service';
+
+
 
 module.exports = {
   //소유 ->nft(ownerId), 만든->nft(artistId), 판매한->transaction(sellerAccount) , 좋아요->likeItemSchema(userAccount)

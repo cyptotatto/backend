@@ -1,5 +1,6 @@
-var Transaction = require('../models/transaction');
-var User = require('../models/user');
+import Transaction from '../models/transaction';
+import User from'../models/user';
+
 var utils = require('util');
 
 module.exports = {

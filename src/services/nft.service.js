@@ -1,6 +1,6 @@
-var NFT = require('../models/nft');
-var User = require('../models/user');
-var userService = require('./userService');
+import NFT from '../models/nft';
+import User from'../models/user';
+import userService from '../services/user.service';
 
 module.exports = {
   //타투 NFT 가져오기

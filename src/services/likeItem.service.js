@@ -1,5 +1,5 @@
-var likeItemList = require('../models/likeItemList');
-var utils = require('util');
+import likeItemList from '../models/likeItemList';
+import utils from 'util';
 
 module.exports = {
   getLikeNFT: async account => {

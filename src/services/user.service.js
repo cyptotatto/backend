@@ -1,6 +1,6 @@
-const user = require('../models/user');
-var User = require('../models/user');
-var utils = require('util');
+
+import User from'../models/user';
+let utils = require('util');
 
 module.exports = {
   //myPage에서 사용

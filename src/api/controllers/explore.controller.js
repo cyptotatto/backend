@@ -1,7 +1,6 @@
-var userService = require('../services/userService');
-var nftService = require('../services/nftService');
-var transactionService = require('../services/transactionService');
-
+import userService from '../../services/user.service.js';
+import nftService from '../../services/nft.service.js';
+import transactionService from '../../services/transaction.service.js';
 //검색 전 페이지
 
 //기본 정렬 최신순         인기순,최신순,가격낮은순,가격높은순

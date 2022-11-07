@@ -1,6 +1,7 @@
-var userService = require('../services/userService');
-var nftService = require('../services/nftService');
-var transactionService = require('../services/transactionService');
+import userService from '../../services/user.service.js';
+import nftService from '../../services/nft.service.js';
+import transactionService from '../../services/transaction.service.js';
+
 
 module.exports = {
   getArtistDetail: async (req, res) => {

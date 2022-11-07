@@ -1,7 +1,9 @@
-const express = require('express');
-const router = express.Router();
-var createController = require('../../controllers/createController');
-//var nftController = require('../../controllers/NftController');
+import express from 'express';
+
+
+let router = express.Router();
+import createController from '../controllers/create.controller';
+
 
 //NFT만들기
 

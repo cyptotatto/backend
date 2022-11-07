@@ -1,7 +1,7 @@
-var userService = require('../services/userService');
-var nftService = require('../services/nftService');
-const User = require('../models/user');
-const Nft = require('../models/nft');
+import userService from '../../services/user.service.js';
+import nftService from '../../services/nft.service.js';
+
+
 
 module.exports = {
   getHotItem: async (req, res) => {
