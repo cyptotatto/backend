@@ -7,11 +7,6 @@ router.get('/nft', detailController.getNftDetail);
 router.get('/artist', detailController.getArtistDetail);
 
 
-router.get('/nft',detailController.getNftDetail); 
- 
-
-router.get('/artist',detailController.getArtistDetail);
-
 router.get('/buy',detailController.getBuy);
 
 module.exports = router;
