@@ -49,11 +49,11 @@ mintHash : {//lazy minting 의 경우 create할때는 없는 값이므로  defau
     default:false
     
 },
-// link: {//추가됨
-//   type: URL,
-//   required: true,
+  link: {//추가됨
+  type: URL,
+  required: true,
 
-// },
+  },
 explanation:{
 type: String
 

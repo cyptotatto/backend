@@ -34,21 +34,26 @@ module.exports = {
            
     },
 
-    getNftDetail: async (req, res) => {
+    getBuy: async (req, res) => {
         try{
-       
-        const nftId=req.params.nftId;
-        
-        const nft =await nftService.getNFT(nftId);//nft이름 변경?
-        
+            
+            const ownedNft =await nftService.getOwnNFT(userAccount);
+            const userAccount=req.params.name;
+            const fileUpload= req.body.fileUpload;
+            const title = req.body.title;
+            const link = null;
+            const genre = req.body.genre;
+            const theme = req.body.theme;
+            const part = req.body.part;
+             
 
  
         
        return res.status(200).json({
             status:200,
-            message: "detail 가져오기 성공",
+            message: "구매 성공",
            // data: nftRanking
-           nftId : nft ,
+           nftId : ownedNft ,
             
         });
     }catch(err)
@@ -57,7 +62,7 @@ module.exports = {
         throw err;
     }
            
-    }
+    },  
 
 
     

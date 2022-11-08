@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var exploreController = require('../../controllers/exploreController');
+var exploreController = require('../../controllers/explore.controller');
 
 //검색하기 전 페이지
 //기본 정렬 최신순

@@ -120,10 +120,10 @@ module.exports = {
         try{
       
         const nft = new NFT({
+             
+            fileUpload: fileUploadT,
             title: titleT,
-            //link: linkT,
-
-
+            link: linkT,
             artistId: "10월 17일",
             ownerId: "10월 18일",
             price: 30000,
