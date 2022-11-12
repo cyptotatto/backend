@@ -16,6 +16,8 @@ import User from'../models/user.js';
   }
   //edit
   export async function setUser (
+    bannerImagePath,
+    profileImagePath,
     userAccount,
     nickname,
     profileIntro,
@@ -28,6 +30,8 @@ import User from'../models/user.js';
         { account: userAccount },
         {
           $set: {
+            bannerImgPath: bannerImagePath,
+            profileImgPath: profileImagePath,
             name: nickname,
             profile: profileIntro,
             email: emailAddress,

@@ -31,6 +31,7 @@ app.use((error, req, res, next) => {
 console.log(config);
 
 connectDB().then(() => {
+  
   console.log('DB Connection Success!');
   const server = app.listen(config.host.port);
 });

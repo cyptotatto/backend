@@ -35,11 +35,15 @@ import * as likeItemService from '../../services/likeItem.service.js';
   }
   export async function editMyInformation(req, res)  {
     try {
-      const userAccount = req.params.name;
+      const userAccount = req.params.account;
       // 닉네임
       // 프로필소개
       // 이메일
       // 대표 장르 선택
+      console.log("req.files" + req.files);
+      //저장된 이미지 경로
+      const bannerImagePath=req.files['bannerImg'].location;
+      const profileImagePath=req.files['profileImg'].location;
       const nickname = req.params.nickname;
       const profileIntro = req.params.profile;
       const emailAddress = req.params.emailAddress;
@@ -47,6 +51,8 @@ import * as likeItemService from '../../services/likeItem.service.js';
       //user 정보
       await userService.setUser(
         userAccount,
+        bannerImagePath,
+        profileImagePath,
         nickname,
         profileIntro,
         emailAddress,

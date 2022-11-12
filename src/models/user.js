@@ -3,9 +3,11 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 /**
  * account
+ * bannerImgPath
+ * profileImgPath
  * name
  * profile
- * emailAddress
+ * email
  * artist  아티스트인지 일반 사용자인지 여부
  * likeCount
  * genre
@@ -18,6 +20,12 @@ const userSchema = new Schema({
     unique: true, // 고유 값
     //  default: true,
   },
+  bannerImgPath:{
+    type: String
+  },
+  profileImgPath:{
+    type: String
+  },
   name: {
     type: String,
     required: true,
@@ -28,15 +36,15 @@ const userSchema = new Schema({
     unique: true,
   },
   email: {
-    type: String,
+    type: String
   },
 
-  artist: {
-    //0은 일반 사용자 1은 아티스트
-    type: Boolean,
-    required: true, // 필수 여부
-    default: 0,
-  },
+  // artist: {
+  //   //0은 일반 사용자 1은 아티스트
+  //   type: Boolean,
+  //   required: true, // 필수 여부
+  //   default: 0,
+  // },
   likeCount: {
     //만든 NFT 좋아요 총합
     type: Number,

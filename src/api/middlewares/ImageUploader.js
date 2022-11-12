@@ -30,15 +30,22 @@ exports.upload = multer({
 // // import multer from 'multer'
 // // import multerS3 from 'multer-s3'
 // // import path from 'path'
-const AWS = require('aws-sdk');
-const multer = require('multer');
-const multerS3 = require('multer-S3');
-const path = require('path');
+import AWS  from 'aws-sdk';
+import multer  from 'multer';
+import multerS3  from 'multer-S3';
+import path  from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 
 AWS.config.update({
-  region: 'ap-northeast-2',
-  accessKeyId: 'AKIAZAOZ6H7DXNRF5MTW',
-  secretAccessKey: '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',
+  region: process.env.REGION,
+  accessKeyId: process.env.S3_KEYID,
+  secretAccessKey: process.env.S3_PRIVATE_KEY,
+ 
+  // region: 'ap-northeast-2',
+  // accessKeyId : 'AKIAZAOZ6H7DXNRF5MTW',
+  // secretAccessKey : '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' ,
+
 });
 
 const s3 = new AWS.S3();
@@ -50,13 +57,16 @@ const upload = multer({
     s3: s3,
     bucket: 'cryp-tattoo',
     key: (req, file, callback) => {
+     console.log("Test111111");
       const uploadDirectory = req.query.directory ?? ''; //업로드할 디렉토리를 설정하기
+     console.log(AWS.config);
+
       const extension = path.extname(file.originalname);
       if (!allowedExtensions.includes(extension)) {
         return callback(new Error('wrong extention'));
       }
-      // callback(null,'${uploadDirectory}/${Date.now()}_${file.originalname}')
-      callback(null, `contents/${Date.now()}_${file.originalname}`);
+       callback(null,`${uploadDirectory}/${Date.now()}_${file.originalname}`)
+      //callback(null, `contents/${Date.now()}_${file.originalname}`);
     },
     acl: 'public-read-write',
   }),
@@ -87,5 +97,5 @@ const upload = multer({
 //     },
 //   }),
 // });
-module.exports = upload;
-//export default upload;
+
+export default upload;
