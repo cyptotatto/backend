@@ -1,9 +1,11 @@
 import express from 'express';
-let router = express.Router();
-import detailController from '../controllers/detailController.js';
 
-router.get('/nft', detailController.getNftDetail);
+const detailRouter= express.Router();
 
-router.get('/artist', detailController.getArtistDetail);
+import * as detailController from '../controllers/detail.controller.js';
 
-module.exports = router;
+detailRouter.get('/nft', detailController.getNftDetail);
+
+detailRouter.get('/artist', detailController.getArtistDetail);
+
+export default detailRouter;

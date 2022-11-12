@@ -1,5 +1,8 @@
-const mongoose = require('mongoose');
-const BigNumberSchema = require('mongoose-bignumber');
+
+import BigNumberSchema from 'mongoose-bignumber';
+import mongoose from 'mongoose';
+
+//import { BigNumber } from "ethers";
 const { Schema } = mongoose;
 /**mintHash
  * mintSignature
@@ -108,4 +111,7 @@ const nftSchema = new Schema({
 
 //module.exports = mongoose.model('NFT', nftSchema);
 //module.exports = mongoose.models['NFT'] || mongoose.model('NFT', nftSchema);
-export default nftSchema;
+
+
+const Nft  = mongoose.model('Nft', nftSchema);
+export default Nft;

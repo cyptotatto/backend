@@ -1,9 +1,9 @@
-import userService from '../../services/user.service.js';
+import * as userService from '../../services/user.service.js';
 //import nftService from '../../services/nft.service.js';
 
 
 
-//module.exports = {
+
  
   export async function getHotItem  (req, res)  {
     try {

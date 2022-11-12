@@ -1,10 +1,10 @@
-import userService from '../../services/user.service.js';
-import nftService from '../../services/nft.service.js';
-import User from '../../models/user';
-import Nft from '../../models/nft' ;
+import * as userService from '../../services/user.service.js';
+import * as nftService from '../../services/nft.service.js';
+import User from '../../models/user.js';
+import Nft from '../../models/nft.js' ;
 
 
-const createNFT1 = {
+export const createNFT1 = {
   create: async (req, res) => {
     try {
       const fileUpload = req.body.fileUpload;
@@ -29,7 +29,7 @@ const createNFT1 = {
     }
   },
 };
-const createNFT2 = {
+export const createNFT2 = {
   create: async (req, res) => {
     try {
       const fileUpload = req.body.fileUpload;
@@ -54,10 +54,7 @@ const createNFT2 = {
   },
 };
 
-module.exports = {
-  createNFT1,
-  createNFT2,
-};
+
 
 // module.exports = {
 //     createNFT: async (req, res) => {

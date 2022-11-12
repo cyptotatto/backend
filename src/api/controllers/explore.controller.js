@@ -1,6 +1,6 @@
-import userService from '../../services/user.service.js';
-import nftService from '../../services/nft.service.js';
-import transactionService from '../../services/transaction.service.js';
+import * as userService from '../../services/user.service.js';
+import * as nftService from '../../services/nft.service.js';
+import * as transactionService from '../../services/transaction.service.js';
 //검색 전 페이지
 
 //기본 정렬 최신순         인기순,최신순,가격낮은순,가격높은순
@@ -107,7 +107,7 @@ const getArtistByGenre = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getSortedItem,
   getNftByGenre,
   getNftByTheme,

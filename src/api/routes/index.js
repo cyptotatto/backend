@@ -2,6 +2,11 @@ import express from 'express';
 
 let router = express.Router();
 import  homeRouter from './home.js';
+import  createRouter from './create.js';
+import  detailRouter from './detail.js';
+import  exploreRouter from './explore.js';
+import  myPageRouter from './myPage.js';
+
 //GET home page.
 
 router.get('/', function (req, res, next) {
@@ -12,13 +17,9 @@ router.get('/', function (req, res, next) {
 // router.use('/transaction', require('./transaction'));
 //router.use('/nft', require('./nft.js'));
 router.use('/home', homeRouter);
-// router.use('/myPage', require('./myPage'));
-// router.use('/explore', require('./explore'));
-// router.use('/create', require('./create'));
-// router.use('/detail', require('./detail'));
+router.use('/myPage', myPageRouter);
+router.use('/explore', exploreRouter);
+router.use('/create', createRouter);
+router.use('/detail', detailRouter);
 
-// router.use('/myPage', require('./myPage'));
-//router.use('/comment', require('./comment'));
-
-//module.exports = router;
 export default router;
