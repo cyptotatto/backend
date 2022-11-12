@@ -46,4 +46,4 @@ router.post("/minting", function (req, res) {
 //좋아요 정렬 어떻게 할 것인지 생각하기 (실시간 반영)
 //아티스트 스키마에도 좋아요 카운트 추가해야한다.
 
-module.exports = router;
+

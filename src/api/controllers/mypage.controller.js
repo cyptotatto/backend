@@ -1,13 +1,13 @@
-import userService from '../../services/user.service.js';
-import nftService from '../../services/nft.service.js';
-import transactionService from '../../services/transaction.service.js';
-import likeItemService from '../../services/likeItem.service';
+import * as userService from '../../services/user.service.js';
+import * as nftService from '../../services/nft.service.js';
+import * as transactionService from '../../services/transaction.service.js';
+import * as likeItemService from '../../services/likeItem.service.js';
 
 
 
-module.exports = {
+
   //소유 ->nft(ownerId), 만든->nft(artistId), 판매한->transaction(sellerAccount) , 좋아요->likeItemSchema(userAccount)
-  getMyInformation: async (req, res) => {
+  export async function getMyInformation (req, res)  {
     try {
       const userAccount = req.params.name;
       //user 정보
@@ -32,8 +32,8 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-  editMyInformation: async (req, res) => {
+  }
+  export async function editMyInformation(req, res)  {
     try {
       const userAccount = req.params.name;
       // 닉네임
@@ -63,5 +63,5 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-};
+  }
+

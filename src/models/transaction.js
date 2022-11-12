@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const BigNumberSchema = require('mongoose-bignumber');
-const { BigNumber } = require('ethers');
+import mongoose from 'mongoose';
+
+import { BigNumber } from "ethers";
 const { Schema } = mongoose;
 
 const { Types: ObjectId } = Schema();
@@ -36,4 +36,6 @@ const transactionSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Transaction', transactionSchema);
+//module.exports = mongoose.model('Transaction', transactionSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
+export default Transaction;

@@ -1,10 +1,10 @@
-import Transaction from '../models/transaction';
-import User from'../models/user';
+import Transaction from '../models/transaction.js';
+import User from'../models/user.js';
 
-var utils = require('util');
 
-module.exports = {
-  getSoldNFT: async account => {
+
+
+  export async function getSoldNFT (account)  {
     try {
       const soldNft = await Transaction.find({ sellerAccount: account });
       return soldNft; //rankingController의 getHotItem으로 반환
@@ -12,8 +12,8 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-};
+  }
+
 // return new Promise(async (resolve, reject) => {
 //     const HotArtist = await User.find({});
 //     console.log("service "+HotArtist );

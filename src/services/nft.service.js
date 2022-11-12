@@ -1,10 +1,10 @@
 import NFT from '../models/nft.js';
 import User from'../models/user.js';
-import userService from '../services/user.service.js';
+//import userService from '../services/user.service.js';
 
-module.exports = {
+
   //타투 NFT 가져오기
-  getSortedNft: async tattooDesign => {
+  export async function getSortedNft (tattooDesign)  {
     //rankingController에서 사용
     try {
       // 프론트에서 필터링 시 이 코드 그대로 ,백에서 필터링 시 아래 검새코드하고 합치기
@@ -41,9 +41,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //랭킹 1~100 NFT 가져오기
-  getHotNFT: async () => {
+  export async function getHotNFT ()  {
     //rankingController에서 사용
     try {
       const hotNft = await NFT.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
@@ -53,9 +53,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //소유한 NFT가져오기
-  getOwnNFT: async account => {
+  export async function getOwnNFT (account)  {
     //myPageController에서 사용
     try {
       const myNft = await NFT.find({ ownerId: account }); //
@@ -65,9 +65,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //만든 NFT 가져오기
-  getMadeNFT: async account => {
+  export async function getMadeNFT (account)  {
     //myPageController에서 사용
     try {
       const madeNft = await NFT.find({ artistId: account });
@@ -77,11 +77,11 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //explore에서 사용할 로직
 
   //도안 검색 : 장르별
-  searchNftByGenre: async nftGenre => {
+  export async function searchNftByGenre (nftGenre)  {
     //myPageController에서 사용
     try {
       const genreNft = await NFT.find({ genre: nftGenre, sale: true });
@@ -91,10 +91,10 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
 
   //도안 검색 : 주제별
-  searchNftByTheme: async nftTheme => {
+  export async function searchNftByTheme (nftTheme)  {
     //myPageController에서 사용
     try {
       const themeNft = await NFT.find({ theme: nftTheme, sale: true });
@@ -104,9 +104,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //도안 검색 : 부위별
-  searchNftByPart: async nftPart => {
+  export async function searchNftByPart (nftPart)  {
     //myPageController에서 사용
     try {
       const partNft = await NFT.find({ part: nftPart, sale: true });
@@ -116,9 +116,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
   //도안 검색 : 장르&주제별
-  searchNftByGenreAndTheme: async (nftGenre, nftTheme) => {
+  export async function searchNftByGenreAndTheme (nftGenre, nftTheme)  {
     //myPageController에서 사용
     try {
       const GandTNft = await NFT.find({
@@ -132,9 +132,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
 
-  mintNFT: async (fileUploadT, titleT, linkT, genreT, sellT) => {
+  export async function mintNFT (fileUploadT, titleT, linkT, genreT, sellT)  {
     //create에서 사용
     try {
       const nft = new NFT({
@@ -163,8 +163,8 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-  getNft: async nftId => {
+  }
+  export async function getNft (nftId)  {
     //detailController에서 사용
     try {
       const nft = await NFT.find({ _id: nftId }); //
@@ -174,8 +174,8 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-  plusNFTLike: async nftId => {
+  }
+  export async function plusNFTLike (nftId)  {
     //myPageController에서 사용
     try {
       //const myNft = await NFT.find({"ownerId" : account });//
@@ -191,6 +191,6 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-  //plusNftLike -> userService.plusArtistLike   이 방법밖에 없을지
-};
+  }
+
+

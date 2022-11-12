@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const { Types: ObjectId } = Schema();
@@ -33,5 +32,7 @@ const likeItemSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('likeItem', likeItemSchema);
-//ㅇㅇ
+//module.exports = mongoose.model('likeItem', likeItemSchema);
+
+const likeItem  =  mongoose.model('likeItem', likeItemSchema);
+export default likeItem;

@@ -1,14 +1,15 @@
-const express = require('express');
-const router = express.Router();
-var createController = require('../../controllers/create.controller');
-//var nftController = require('../../controllers/NftController');
+
+import express from 'express';
+
+const createRouter= express.Router();
+
+import * as createController from '../controllers/create.controller.js';
+
 
 //NFT만들기
 
+//createRouter.post('/illustration', createController.createNFT.create);
 
-router.post('/illustration', createController.createNFT.create);
+//createRouter.post('/pict', createController.createNFT.create);
 
-
-router.post('/pict', createController.createNFT.create);
-
-module.exports = router;
+export default createRouter;

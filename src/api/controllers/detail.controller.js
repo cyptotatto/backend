@@ -1,10 +1,10 @@
-import userService from '../../services/user.service.js';
-import nftService from '../../services/nft.service.js';
-import transactionService from '../../services/transaction.service.js';
+import * as userService from '../../services/user.service.js';
+import * as nftService from '../../services/nft.service.js';
+import * as transactionService from '../../services/transaction.service.js';
 
 
-module.exports = {
-  getArtistDetail: async (req, res) => {
+
+export async function getArtistDetail (req, res)  {
     try {
       const userAccount = req.params.name;
       //console.log(userAccount);
@@ -26,9 +26,9 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
+  }
 
-  getNftDetail: async (req, res) => {
+  export async function getNftDetail(req, res)  {
     try {
       const nftId = req.params.nftId;
 
@@ -44,5 +44,5 @@ module.exports = {
       console.log(err);
       throw err;
     }
-  },
-};
+  }
+

@@ -2,62 +2,62 @@
 import User from'../models/user.js';
 //let utils = require('util');
 
-//module.exports = {
-  //myPage에서 사용
-  const userService={
-  // getUser: async userAccount => {
-  //   try {
-  //     const userInformaion = await User.find({ account: userAccount });
-  //     return userInformaion;
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // },
-  // //edit
-  // setUser: async (
-  //   userAccount,
-  //   nickname,
-  //   profileIntro,
-  //   emailAddress,
-  //   tattooGenre,
-  // ) => {
-  //   try {
-  //     // const userInformaion = await User.find({ account: userAccount });
-  //     await User.updateOne(
-  //       { account: userAccount },
-  //       {
-  //         $set: {
-  //           name: nickname,
-  //           profile: profileIntro,
-  //           email: emailAddress,
-  //           genre: tattooGenre,
-  //         },
-  //       },
-  //       function (err, res) {
-  //         if (err) {
-  //           throw error;
-  //         }
-  //         console.log('1 document 수정 완료.');
-  //       },
-  //     );
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // },
-  // //explore에서 사용
-  // getSortedArtist: async () => {
-  //   try {
-  //     const artist = await User.find({ likeCount: { $gt: -1 } });
-  //     return artist;
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // },
+
+ // myPage에서 사용
+  
+  export async function getUser( userAccount)  {
+    try {
+      const userInformaion = await User.find({ account: userAccount });
+      return userInformaion;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+  //edit
+  export async function setUser (
+    userAccount,
+    nickname,
+    profileIntro,
+    emailAddress,
+    tattooGenre,
+  ) {
+    try {
+      // const userInformaion = await User.find({ account: userAccount });
+      await User.updateOne(
+        { account: userAccount },
+        {
+          $set: {
+            name: nickname,
+            profile: profileIntro,
+            email: emailAddress,
+            genre: tattooGenre,
+          },
+        },
+        function (err, res) {
+          if (err) {
+            throw error;
+          }
+          console.log('1 document 수정 완료.');
+        },
+      );
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+  //explore에서 사용
+  export async function getSortedArtist ()  {
+    try {
+      const artist = await User.find({ likeCount: { $gt: -1 } });
+      return artist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
   //home에서 사용
-  getHotArtist: async () => {
+  export async function getHotArtist (){
     try {
       const HotArtist =  await User.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
       console.log(HotArtist);
@@ -66,28 +66,28 @@ import User from'../models/user.js';
       console.log(err);
       throw err;
     }
-  // },
-  // getUserAccount: async userName => {
-  //   try {
-  //     const HotArtist = await User.findOne({ name: userName });
-  //     return HotArtist.account.toString;
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // },
-  // //explore : 아티스트 검색 : 장르별 (1개)
-  // searchArtistByGenre: async artistGenre => {
-  //   //myPageController에서 사용
-  //   try {
-  //     const artist = await User.find({ genre: artistGenre });
+  }
+  export async function getUserAccount (userName) {
+    try {
+      const HotArtist = await User.findOne({ name: userName });
+      return HotArtist.account.toString;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+  //explore : 아티스트 검색 : 장르별 (1개)
+  export async function searchArtistByGenre (artistGenre) {
+    //myPageController에서 사용
+    try {
+      const artist = await User.find({ genre: artistGenre });
 
-  //     return artist;
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // },
+      return artist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
   // plusArtistLike: async artist => {
   //   //myPageController에서 사용
   //   try {
@@ -103,9 +103,9 @@ import User from'../models/user.js';
   //     throw err;
   //   }
   // }
-}
-  }
-export default userService;
+//}
+  
+
 //};
 //plusArtistLike
 
