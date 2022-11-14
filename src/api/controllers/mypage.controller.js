@@ -35,20 +35,40 @@ import * as likeItemService from '../../services/likeItem.service.js';
   }
   export async function editMyInformation(req, res)  {
     try {
-      const userAccount = req.params.account;
+      const userAccount = req.body.account;
       // 닉네임
       // 프로필소개
       // 이메일
       // 대표 장르 선택
-      console.log("req.files" + req.files);
+     // console.log("req.files" + req.files);
       //저장된 이미지 경로
-      const bannerImagePath=req.files['bannerImg'].location;
-      const profileImagePath=req.files['profileImg'].location;
-      const nickname = req.params.nickname;
-      const profileIntro = req.params.profile;
-      const emailAddress = req.params.emailAddress;
-      const tattooGenre = req.params.genre;
-      //user 정보
+      //let imgFile = req.files;
+      console.log(req.files['bannerImg'][0].location);
+     // res.json(imgFile);
+     // const path= req.files.map(file => file.path);
+     // console.log("여기==========================="+  path);
+      const bannerImagePath=req.files['bannerImg'][0].location;
+      const profileImagePath=req.files['profileImg'][0].location;
+      const nickname = req.body.nickname;
+      const profileIntro = req.body.profile;
+      const emailAddress = req.body.emailAddress;
+      const genre1=req.body.genre1;
+      const genre2=req.body.genre2;
+      const genre3=req.body.genre3;
+
+    let  tattooGenre = [];
+    
+    if(genre1!="")
+      tattooGenre.push(genre1);
+    if(genre2!="")
+      tattooGenre.push(genre2);
+    if(genre3!="")
+      tattooGenre.push(genre3);
+
+
+
+     console.log("req.name : "+ tattooGenre );
+      // //user 정보
       await userService.setUser(
         userAccount,
         bannerImagePath,

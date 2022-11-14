@@ -16,9 +16,9 @@ import User from'../models/user.js';
   }
   //edit
   export async function setUser (
+    userAccount,
     bannerImagePath,
     profileImagePath,
-    userAccount,
     nickname,
     profileIntro,
     emailAddress,
@@ -26,25 +26,27 @@ import User from'../models/user.js';
   ) {
     try {
       // const userInformaion = await User.find({ account: userAccount });
+      //const userInformaion = await User.find({ account: "07380aasss9007dd3347" });
+      //console.log("dddd "+ userAccount);
       await User.updateOne(
-        { account: userAccount },
+        { "account": userAccount },
         {
-          $set: {
-            bannerImgPath: bannerImagePath,
-            profileImgPath: profileImagePath,
-            name: nickname,
-            profile: profileIntro,
-            email: emailAddress,
+          // "$set": {
+             bannerImgPath: bannerImagePath,
+             profileImgPath: profileImagePath,
+             name: nickname,
+             profile: profileIntro,
+             email: emailAddress,
             genre: tattooGenre,
-          },
-        },
+           },
         function (err, res) {
           if (err) {
             throw error;
           }
           console.log('1 document 수정 완료.');
+          console.log(res.result );
         },
-      );
+      ).clone();
     } catch (err) {
       console.log(err);
       throw err;

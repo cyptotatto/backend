@@ -57,15 +57,15 @@ const upload = multer({
     s3: s3,
     bucket: 'cryp-tattoo',
     key: (req, file, callback) => {
-     console.log("Test111111");
-      const uploadDirectory = req.query.directory ?? ''; //업로드할 디렉토리를 설정하기
-     console.log(AWS.config);
+     
+      const uploadDirectory = req.body.directory ?? ''; //업로드할 디렉토리를 설정하기
+    
 
       const extension = path.extname(file.originalname);
       if (!allowedExtensions.includes(extension)) {
         return callback(new Error('wrong extention'));
-      }
-       callback(null,`${uploadDirectory}/${Date.now()}_${file.originalname}`)
+      }//{ fieldName: file.fieldname }  `${uploadDirectory}/${Date.now()}_${file.originalname}`
+       callback(null, `${uploadDirectory}/${Date.now()}_${file.originalname}`)
       //callback(null, `contents/${Date.now()}_${file.originalname}`);
     },
     acl: 'public-read-write',
