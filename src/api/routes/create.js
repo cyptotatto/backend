@@ -5,10 +5,9 @@ const createRouter= express.Router();
 import * as createController from '../controllers/create.controller.js';
 
 
-//NFT만들기
 
-//createRouter.post('/illustration', createController.createNFT.create);
+createRouter.post('/illustration', createController.createNFT1);
 
-//createRouter.post('/pict', createController.createNFT.create);
+createRouter.post('/pict', createController.createNFT2);
 
 export default createRouter;
