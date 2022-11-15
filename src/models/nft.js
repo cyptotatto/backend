@@ -38,6 +38,11 @@ const nftSchema = new Schema({
     type: BigNumberSchema,
     default: 0,
   },
+  file: {
+  type: String,
+  default: null,
+  required: true,
+  },
   holder: {
     type: String,
     default: null,
@@ -84,7 +89,10 @@ const nftSchema = new Schema({
     index: true,
     default: 0,
   },
-
+  sort: {
+    type: String,
+    required: true,
+  },
   genre: {
     type: String,
     required: true,

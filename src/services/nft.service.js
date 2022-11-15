@@ -134,20 +134,22 @@ import User from'../models/user.js';
     }
   }
 
-  export async function mintNFT (fileUploadT, titleT, linkT, genreT, sellT)  {
+  export async function mintNFT (fileT, titleT, linkT, explanationT, sortT, genreT, themeT, partT, saleT,priceT,)  {
     //create에서 사용
     try {
       const nft = new NFT({
+        file: fileT,
         title: titleT,
-        //link: linkT,
-
-        artistId: '10월 17일',
-        ownerId: '10월 18일',
-        price: 30000,
-        genre: '이레즈미',
-        theme: '평화',
-        part: '목', //근데 create 일반에선 필수
-        sale: true,
+        link: linkT,
+        explanation: explanationT,
+        //artistId: '',
+        //ownerId: '',
+        sort: sortT,
+        genre: genreT,
+        theme: themeT,
+        part: partT,  
+        sale: saleT,
+        price: priceT,
       });
 
       nft
