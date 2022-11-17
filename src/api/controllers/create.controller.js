@@ -7,7 +7,7 @@ import Nft from '../../models/nft.js' ;
 
 export const createNFT1 = async (req, res) => {
   try {
-    const file = req.file.location; //s3에 저장된 정보패스를 뽑아서 써야함
+    const file = req.file.location; //s3에 저장된 file정보패스(경로)를 뽑아서 써야함
     const title = req.body.title;
     const link = null;
     const explanation =req.body.explanation;

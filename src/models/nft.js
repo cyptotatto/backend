@@ -56,11 +56,11 @@ const nftSchema = new Schema({
     required: true,
     default: false,
   },
-  // link: {//추가됨
-  //   type: URL,
-  //   required: true,
+  link: {
+    type: String,
+    required: false,
 
-  // },
+   },
   explanation: {
     type: String,
   },
