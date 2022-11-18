@@ -166,7 +166,7 @@ import User from'../models/user.js';
       throw err;
     }
   }
-  export async function getNft (nftId)  {
+  export async function getNFT (nftId)  {
     //detailController에서 사용
     try {
       const nft = await NFT.find({ _id: nftId }); //

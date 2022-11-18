@@ -6,7 +6,7 @@ import * as transactionService from '../../services/transaction.service.js';
 
 export async function getArtistDetail (req, res)  {
     try {
-      const userAccount = req.params.name;
+      const userAccount = req.params.account;
       //console.log(userAccount);
       const ownedNft = await nftService.getOwnNFT(userAccount);
       const madeNft = await nftService.getMadeNFT(userAccount);
