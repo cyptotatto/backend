@@ -70,15 +70,15 @@ const nftSchema = new Schema({
     default: true,
   },
   artistAccount: {
-    type: ObjectId,
-    type: String,
+    //type: ObjectId,
+    type: String, //:id, :account 이런식의 스트링 형식. params요고
     required: true,
-    ref: 'User',
+    //ref: 'User',
   },
   ownerAccount: {
-    type: ObjectId,
-    type: String,
-    ref: 'User',
+    //type: ObjectId,
+    type: String, //:id, :account 이런식의 스트링 형식. params요고
+    //ref: 'User',
   },
   price: {
     type: Number, // 자료형
