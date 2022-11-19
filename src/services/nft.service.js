@@ -58,7 +58,7 @@ import User from'../models/user.js';
   export async function getOwnNFT (account)  {
     //myPageController에서 사용
     try {
-      const myNft = await NFT.find({ ownerId: account }); //
+      const myNft = await NFT.find({ ownerAccount: account }); // ownerAccount와 account가 동일하면 NFT에서 찾음
 
       return myNft;
     } catch (err) {
@@ -70,7 +70,7 @@ import User from'../models/user.js';
   export async function getMadeNFT (account)  {
     //myPageController에서 사용
     try {
-      const madeNft = await NFT.find({ artistId: account });
+      const madeNft = await NFT.find({ artistAccount: account });
 
       return madeNft;
     } catch (err) {

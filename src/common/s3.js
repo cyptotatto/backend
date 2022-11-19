@@ -1,5 +1,5 @@
 import AWS  from 'aws-sdk';
-import config from './config/index.js';
+import config from '../config/index.js';
 
 AWS.config.update({
   region: config.s3.region,

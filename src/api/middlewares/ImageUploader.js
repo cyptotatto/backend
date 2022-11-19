@@ -30,25 +30,12 @@ exports.upload = multer({
 // // import multer from 'multer'
 // // import multerS3 from 'multer-s3'
 // // import path from 'path'
-import AWS  from 'aws-sdk';
+//import AWS  from 'aws-sdk'; //aws는 s3를 만들려고 임포트하는거라서 common폴더로 s3기능을 뺏기떄문에 없어도됩니다
 import multer  from 'multer';
 import multerS3  from 'multer-S3';
 import path  from 'path';
-import dotenv from 'dotenv';
-dotenv.config();
+import s3 from '../../common/s3.js';
 
-AWS.config.update({
-  region: process.env.REGION,
-  accessKeyId: process.env.S3_KEYID,
-  secretAccessKey: process.env.S3_PRIVATE_KEY,
- 
-  // region: 'ap-northeast-2',
-  // accessKeyId : 'AKIAZAOZ6H7DXNRF5MTW',
-  // secretAccessKey : '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' ,
-
-});
-
-const s3 = new AWS.S3();
 
 const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp'];
 

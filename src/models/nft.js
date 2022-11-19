@@ -53,7 +53,7 @@ const nftSchema = new Schema({
   },
   isMint: {
     type: Boolean,
-    required: true,
+    //required: true, 임의로 주석했습니다
     default: false,
   },
   link: {
@@ -66,13 +66,13 @@ const nftSchema = new Schema({
   },
   tattooDesign: {
     type: Boolean, //true ->타투도안 , false-> 타투이미지
-    required: true,
+    //required: true,임의로 주석했습니다.
     default: true,
   },
   artistAccount: {
     //type: ObjectId,
     type: String, //:id, :account 이런식의 스트링 형식. params요고
-    required: true,
+   // required: true, 임의로 주석했습니다.
     //ref: 'User',
   },
   ownerAccount: {
