@@ -22,7 +22,7 @@ exploreRouter.get('/nft/genre/:genre', exploreController.getNftByGenre);
 exploreRouter.get('/nft/theme/:theme', exploreController.getNftByTheme);
 
 //NFT검색:부위
-//exploreRouter.get('/nft/part/:part', exploreController);
+exploreRouter.get('/nft/part/:part', exploreController.getNftByPart);
 
 //NFT검색: 장르& 주제
 exploreRouter.get(

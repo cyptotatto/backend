@@ -111,6 +111,7 @@ export {
   getSortedItem,
   getNftByGenre,
   getNftByTheme,
+  getNftByPart,
   getNftByGenreAndTheme,
   getArtistByGenre,
 };
