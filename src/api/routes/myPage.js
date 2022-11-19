@@ -6,7 +6,8 @@ import * as myPageController from '../controllers/mypage.controller.js';
 
 
 //UserName(account), 소유NFT 반환
-myPageRouter.get('/:name', myPageController.getMyInformation);
+myPageRouter.get('/:account/:type', myPageController.getMyInformation);
+//개인 정보 수정
 myPageRouter.post('/edit/:account',upload.fields([
   { name: 'bannerImg' },
   { name: 'profileImg' }]),myPageController.editMyInformation);

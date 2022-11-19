@@ -58,7 +58,7 @@ const getNftByTheme = async (req, res) => {
 };
 const getNftByPart = async (req, res) => {
   try {
-    const part = req.params.part; //사용자가 지정한 주제
+    const part = req.params.part; 
     const partNft = await nftService.searchNftByPart(part);
 
     return res.status(200).json({
@@ -107,6 +107,59 @@ const getArtistByGenre = async (req, res) => {
   }
 };
 
+//explore에서 nft 검색
+const getNftKeywords = async (req, res) => {
+  try {
+    let searchQuery = {};
+    let searchKeyWords=[];
+    //true :도안,false:이미지
+    //tattooDesign이 지금 없어서 잠시 주석 처리
+    // if(tattooDesign)
+    //   searchKeyWords.push({  tattooDesign: true});
+    // else
+    //  searchKeyWords.push({  tattooDesign: false});
+    if(req.query.genre)
+      searchKeyWords.push({ genre: req.query.genre });
+    if(req.query.theme)
+      searchKeyWords.push({ theme: req.query.theme });
+    if(req.query.part)
+      searchKeyWords.push({ part: req.query.part });    
+    searchQuery={searchKeyWords};
+    const searchedNft = await nftService.searchNftByKeywords(searchQuery);
+    
+
+    return res.status(200).json({
+      status: 200,
+      message: '타투 도안 검색 성공',
+      nft :searchedNft
+    });
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
+const  getArtistKeywords = async (req, res) => {
+  try {
+    let searchQuery = {};
+    let searchKeyWords=[];
+    if(req.query.genre)
+      searchKeyWords.push({ genre: req.query.genre });
+    searchQuery={$and:searchKeyWords};
+   
+    const searchedArtist = await userService.searchArtistByKeywords(searchQuery);
+    
+    return res.status(200).json({
+      status: 200,
+      message: '아티스트 검색 성공',
+      artist :searchedArtist
+    });
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
 export {
   getSortedItem,
   getNftByGenre,
@@ -114,4 +167,6 @@ export {
   getNftByPart,
   getNftByGenreAndTheme,
   getArtistByGenre,
+  getNftKeywords,
+  getArtistKeywords
 };

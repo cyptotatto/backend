@@ -1,4 +1,4 @@
-//필요 x
+// 필요 x
 
 // const mongoose = require('mongoose');
 

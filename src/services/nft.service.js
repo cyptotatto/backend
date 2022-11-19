@@ -58,7 +58,11 @@ import User from'../models/user.js';
   export async function getOwnNFT (account)  {
     //myPageController에서 사용
     try {
-      const myNft = await NFT.find({ ownerId: account }); //
+      let myNft=new Object();;
+      myNft.latest = await NFT.find({ ownerAccount: account }).sort( { _id: -1 } ); //최신순
+      myNft.highPrice = await NFT.find({ price: { $gt: 0 } , ownerAccount: account }); //가격 높은 순
+     // myNft.lowPrice =myNft.highPrice.reverce(); //가격 낮은 순
+
 
       return myNft;
     } catch (err) {
@@ -70,8 +74,13 @@ import User from'../models/user.js';
   export async function getMadeNFT (account)  {
     //myPageController에서 사용
     try {
-      const madeNft = await NFT.find({ artistId: account });
-
+      let madeNft=new Object();
+      madeNft.latest = await NFT.find({artistAccount: account}).sort( { _id: -1 } ); //최신순
+      
+      madeNft.highPrice = await NFT.find({ price: { $gt: -1 } ,  artistAccount: account  }); //가격 높은 순
+      //madeNft.lowPrice =madeNft.highPrice.reverce();
+      
+     
       return madeNft;
     } catch (err) {
       console.log(err);
@@ -133,6 +142,23 @@ import User from'../models/user.js';
       throw err;
     }
   }
+  //nft 검색
+  export async function searchNftByKeywords (searchQuery)  {
+    
+    try {
+      let nft=new Object();
+       nft.likeCount = await NFT.find(searchQuery).sort( { likeCount: -1 } ); //인기순;
+       nft.latest = await NFT.find(searchQuery).sort( { _id: -1 } ); //최신순;
+       nft.highPrice = await NFT.find(searchQuery).sort( { price: -1 } ); //가격높은순;
+       nft.lowPrice = await NFT.find(searchQuery).sort( { price: 1 } ); //가격높은순;
+
+  
+      return nft;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 
   export async function mintNFT (fileT, titleT, linkT, explanationT, sortT, genreT, themeT, partT, saleT,priceT,)  {
     //create에서 사용
@@ -177,22 +203,22 @@ import User from'../models/user.js';
       throw err;
     }
   }
-  export async function plusNFTLike (nftId)  {
-    //myPageController에서 사용
-    try {
-      //const myNft = await NFT.find({"ownerId" : account });//
-      const nft = NFT.find({ _id: nftId });
-      const artist = nft.artistAccount; //만든 아티스트 좋아요도 증가해주기
-      const count = nft.likeCount;
-      await NFT.findByIdAndUpdate(nftId, {
-        likeCount: count + 1,
-      });
+  // export async function plusNFTLike (nftId)  {
+  //   //myPageController에서 사용
+  //   try {
+  //     //const myNft = await NFT.find({"ownerId" : account });//
+  //     const nft = NFT.find({ _id: nftId });
+  //     const artist = nft.artistAccount; //만든 아티스트 좋아요도 증가해주기
+  //     const count = nft.likeCount;
+  //     await NFT.findByIdAndUpdate(nftId, {
+  //       likeCount: count + 1,
+  //     });
 
-      userService.plusArtistLike(artist); //아티스트 아이디는 유저서비스에서 증가
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  }
+  //     userService.plusArtistLike(artist); //아티스트 아이디는 유저서비스에서 증가
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // }
 
 

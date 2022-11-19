@@ -9,24 +9,34 @@ import * as likeItemService from '../../services/likeItem.service.js';
   //소유 ->nft(ownerId), 만든->nft(artistId), 판매한->transaction(sellerAccount) , 좋아요->likeItemSchema(userAccount)
   export async function getMyInformation (req, res)  {
     try {
-      const userAccount = req.params.name;
+      const userAccount = req.params.account;
       //user 정보
       const userInformation = await userService.getUser(userAccount);
+      //소유, 만든, 판매,좋아요한 NFT, 좋아요한 아티스트
+      const type = req.params.type; 
+      console.log(userAccount+"  "+type);
       //user와 관련된 nft
-      const ownedNft = await nftService.getOwnNFT(userAccount);
-      const madeNft = await nftService.getMadeNFT(userAccount);
-      const soldNft = await transactionService.getSoldNFT(userAccount);
-      const likeNft = await likeItemService.getLikeNFT(userAccount);
+      let mylist;
+      if(type=='own')
+        mylist = await nftService.getOwnNFT(userAccount); 
+      else if(type=='made')
+        mylist = await nftService.getMadeNFT(userAccount);
+      else if(typee=='sold')
+        mylist = await transactionService.getSoldNFT(userAccount);
+      else if(type=='likeNft')
+        mylist = await likeItemService.getLikeNFT(userAccount);
+      else if(type=='likeArtist')
+        mylist = await likeItemService.getLikeArtist(userAccount);
 
       return res.status(200).json({
         status: 200,
         message: 'myPage 가져오기 성공',
 
         user: userInformation,
-        ownedNFT: ownedNft,
-        madeNFT: madeNft,
-        soldNft: soldNft,
-        likeNTF: likeNft,
+        NFT: mylist,
+        // madeNFT: madeNft,
+        // soldNft: soldNft,
+        // likeNTF: likeNft,
       });
     } catch (err) {
       console.log(err);
