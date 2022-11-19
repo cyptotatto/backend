@@ -38,6 +38,11 @@ const nftSchema = new Schema({
     type: BigNumberSchema,
     default: 0,
   },
+  file: {
+  type: String,
+  default: null,
+  required: true,
+  },
   holder: {
     type: String,
     default: null,
@@ -51,11 +56,11 @@ const nftSchema = new Schema({
     required: true,
     default: false,
   },
-  // link: {//추가됨
-  //   type: URL,
-  //   required: true,
+  link: {
+    type: String,
+    required: false,
 
-  // },
+   },
   explanation: {
     type: String,
   },
@@ -65,15 +70,15 @@ const nftSchema = new Schema({
     default: true,
   },
   artistAccount: {
-    type: ObjectId,
-    type: String,
+    //type: ObjectId,
+    type: String, //:id, :account 이런식의 스트링 형식. params요고
     required: true,
-    ref: 'User',
+    //ref: 'User',
   },
   ownerAccount: {
-    type: ObjectId,
-    type: String,
-    ref: 'User',
+    //type: ObjectId,
+    type: String, //:id, :account 이런식의 스트링 형식. params요고
+    //ref: 'User',
   },
   price: {
     type: Number, // 자료형
@@ -84,7 +89,10 @@ const nftSchema = new Schema({
     index: true,
     default: 0,
   },
-
+  sort: {
+    type: String,
+    required: true,
+  },
   genre: {
     type: String,
     required: true,
