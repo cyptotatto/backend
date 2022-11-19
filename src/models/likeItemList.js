@@ -20,13 +20,23 @@ const likeItemSchema = new Schema({
       nftId: {
         type: ObjectId,
         ref: 'NFT',
-        type: String,
-        required: true,
+        type: String
+       
+      },
+    },
+  ],
+  artists:[
+    {
+      artistAccount: {
+        type: ObjectId,
+        ref: 'User',
+        type: String
+      
       },
     },
   ],
   createdAt: {
-    //도안 top 100을 위해 임의로
+    
     type: Date,
     default: Date.now,
   },

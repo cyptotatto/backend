@@ -93,6 +93,21 @@ import User from'../models/user.js';
       throw err;
     }
   }
+
+  export async function searchArtistByKeywords (searchQuery)  {
+    try {
+      let artist=new Object();
+      artist.likeCount = await User.find(searchQuery).sort( { likeCount: -1 } );//인기순
+      artist.latest = await User.find(searchQuery).sort( { _id: -1 } );//최신순
+
+      
+
+      return artist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
   // plusArtistLike: async artist => {
   //   //myPageController에서 사용
   //   try {

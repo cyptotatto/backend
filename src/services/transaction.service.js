@@ -6,8 +6,13 @@ import User from'../models/user.js';
 
   export async function getSoldNFT (account)  {
     try {
-      const soldNft = await Transaction.find({ sellerAccount: account });
-      return soldNft; //rankingController의 getHotItem으로 반환
+      //const soldNft = await Transaction.find({ sellerAccount: account });
+      let soldNft=new Object();;
+      soldNft.latest = await Transaction.find({ sellerAccount: account   }).sort( { _id: -1 } ); //최신순
+      soldNft.highPrice = await Transaction.find({sellerAccount: account }).sort({transactionPrice: -1} ); //가격 높은 순
+      soldNft.lowPrice =soldNft.highPrice.reverce();
+
+      return soldNft; 
     } catch (err) {
       console.log(err);
       throw err;
