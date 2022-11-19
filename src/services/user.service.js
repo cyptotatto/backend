@@ -66,7 +66,6 @@ import User from'../models/user.js';
   export async function getHotArtist (){
     try {
       const HotArtist =  await User.find({ likeCount: { $gt: -1 } }).limit(100); //좋아요 수가 -1보다 큰것 100개이하로 검색
-      console.log(HotArtist);
       return HotArtist;
     } catch (err) {
       console.log(err);

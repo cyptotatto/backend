@@ -35,18 +35,11 @@ import * as likeItemService from '../../services/likeItem.service.js';
   }
   export async function editMyInformation(req, res)  {
     try {
-      const userAccount = req.body.account;
       // 닉네임
       // 프로필소개
       // 이메일
-      // 대표 장르 선택
-     // console.log("req.files" + req.files);
-      //저장된 이미지 경로
-      //let imgFile = req.files;
-      console.log(req.files['bannerImg'][0].location);
-     // res.json(imgFile);
-     // const path= req.files.map(file => file.path);
-     // console.log("여기==========================="+  path);
+      // 대표 장르 선택 1,2,3
+      const userAccount = req.body.account;
       const bannerImagePath=req.files['bannerImg'][0].location;
       const profileImagePath=req.files['profileImg'][0].location;
       const nickname = req.body.nickname;
@@ -55,6 +48,7 @@ import * as likeItemService from '../../services/likeItem.service.js';
       const genre1=req.body.genre1;
       const genre2=req.body.genre2;
       const genre3=req.body.genre3;
+
 
     let  tattooGenre = [];
     
