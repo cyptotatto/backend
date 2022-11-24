@@ -1,6 +1,6 @@
 import express from 'express';
 
-const detailRouter= express.Router();
+const detailRouter = express.Router();
 
 import * as detailController from '../controllers/detail.controller.js';
 

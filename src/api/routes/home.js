@@ -1,5 +1,5 @@
 import express from 'express';
-const homeRouter= express.Router();
+const homeRouter = express.Router();
 
 //let rankingController =require('../controllers/ranking.controller.js');
 

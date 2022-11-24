@@ -1,5 +1,5 @@
 import express from 'express';
-const exploreRouter= express.Router();
+const exploreRouter = express.Router();
 
 import * as exploreController from '../controllers/explore.controller.js';
 
@@ -34,9 +34,8 @@ import * as exploreController from '../controllers/explore.controller.js';
 // exploreRouter.get('/artist/genre/:genre', exploreController.getArtistByGenre);
 
 //통합 검색: 타투
-exploreRouter.get('/nft',exploreController.getNftKeywords);
+exploreRouter.get('/nft', exploreController.getNftKeywords);
 //통합 검색: 아티스트
-exploreRouter.get('/artist',exploreController.getArtistKeywords);
-
+exploreRouter.get('/artist', exploreController.getArtistKeywords);
 
 export default exploreRouter;
