@@ -1,8 +1,8 @@
-//테스트용 
+// 테스트용
 //const nft = new Object();
 // nft.a={dd:"d",
 //        ee:"e"};
-// nft.b={  
+// nft.b={
 //     "quiz": {
 //         "sport": {
 //             "q1": {
@@ -17,11 +17,8 @@
 //             }
 //         }
 //     }
-    
+
 //     };
 
 //     console.log(nft);
 //    // console.log(nft.reverse());
-    
-
-
