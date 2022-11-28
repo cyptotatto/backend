@@ -8,7 +8,7 @@ import * as myPageController from '../controllers/mypage.controller.js';
 myPageRouter.get('/:account/:type', myPageController.getMyInformation);
 //개인 정보 수정
 myPageRouter.post(
-  '/edit/:account',
+  '/edit',
   upload.fields([{ name: 'bannerImg' }, { name: 'profileImg' }]),
   myPageController.editMyInformation,
 );

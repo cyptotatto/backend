@@ -114,10 +114,12 @@ const getNftKeywords = async (req, res) => {
     let searchKeyWords=[];
     //true :도안,false:이미지
     //tattooDesign이 지금 없어서 잠시 주석 처리
-    // if(tattooDesign)
-    //   searchKeyWords.push({  tattooDesign: true});
-    // else
-    //  searchKeyWords.push({  tattooDesign: false});
+    let tattooDesign=req.query.tattooDesign;
+    console.log(tattooDesign);
+    if(tattooDesign=="true")
+      searchKeyWords.push({  tattooDesign: true});
+    else
+     searchKeyWords.push({  tattooDesign: false});
     if(req.query.genre)
       searchKeyWords.push({ genre: req.query.genre });
     if(req.query.theme)
