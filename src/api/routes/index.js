@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
 router.use('/home', homeRouter);
 router.use('/myPage', myPageRouter);
 router.use('/explore', exploreRouter);
-router.use('/create', createRouter);
+//router.use('/create', createRouter);
 router.use('/detail', detailRouter);
 
 export default router;
