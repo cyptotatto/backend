@@ -5,7 +5,7 @@ import AWS from 'aws-sdk';
 import multer from 'multer';
 import multerS3 from 'multer-S3';
 import path from 'path';
-import s3 from '../../common/s3.js';
+import {s3, bucket} from '../../common/s3.js';
 
 const createRouter = express.Router();
 
@@ -18,7 +18,7 @@ const allowedExtensions = ['.jpg', '.png', '.GIF', '.WEBP', '.MP4', '.MP3'];
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: 'cryp-tattoo',
+    bucket: bucket,
     limits: { fileSize: 100000, files: 1 },
     key: (req, file, callback) => {
       const extension = path.extname(file.originalname);

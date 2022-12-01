@@ -7,10 +7,9 @@ AWS.config.update({
   secretAccessKey: config.s3.privateKey,
 
   // region: 'ap-northeast-2',
-  // accessKeyId : 'AKIAZAOZ6H7DXNRF5MTW',
+  // accessKeyId : 'AKIAZAOZ6H7DXNRF5MTW',e
   // secretAccessKey : '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' ,
 });
 
-const s3 = new AWS.S3();
-
-export default s3;
+export const s3 = new AWS.S3();
+export const bucket = config.s3.bucket;

@@ -13,5 +13,6 @@ export default {
     region: process.env.REGION,
     keyId: process.env.S3_KEYID,
     privateKey: process.env.S3_PRIVATE_KEY,
+    bucket: process.env.S3_BUCKET,
   },
 };

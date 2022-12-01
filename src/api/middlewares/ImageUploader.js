@@ -1,7 +1,7 @@
 import multer  from 'multer';
 import multerS3  from 'multer-S3';
 import path  from 'path';
-import s3 from '../../common/s3.js';
+import { s3, bucket } from '../../common/s3.js';
  
  
 
@@ -10,7 +10,7 @@ const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp'];
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: 'cryp-tattoo',
+    bucket: bucket,
     key: (req, file, callback) => {
      
       const uploadDirectory = req.body.directory ?? ''; //업로드할 디렉토리를 설정하기
