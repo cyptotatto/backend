@@ -1,52 +1,52 @@
-//api테스트용
-// const express = require('express');
-// const router = express.Router();
-// const Transaction = require('../../schemas/transaction');
 
-// /**
-//  * buyerAccount
-//  * sellerAccount
-//  * nftId
-//  * transactionPrice
-//  */
+import express from 'express';
+const transactionRouter = express.Router();
+import Transaction from "../../models/transaction.js";
 
-// //거래가 일어났을 때
-// router.post('/', function(req,res){
+/**
+ * buyerAccount
+ * sellerAccount
+ * nftId
+ * transactionPrice
+ */
 
-//   const transaction = new Transaction({
-//     buyerAccount: req.body.buyerAccount,
-//     sellerAccount: req.body.sellerAccount,
-//     nftId: req.body.nftId,
-//     transactionPrice: req.body.transactionPrice
-//   })
-//   console.log(transaction);
-//    transaction.save()
-//     .then((result) => {
+//거래가 일어났을 때
+transactionRouter.post('/', function(req,res){
 
-//       res.json(result);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       next(err);
-//     })
-// })
+  const transaction = new Transaction({
+    buyerAccount: req.body.buyerAccount,
+    sellerAccount: req.body.sellerAccount,
+    nftId: req.body.nftId,
+    transactionPrice: req.body.transactionPrice
+  })
+  console.log(transaction);
+   transaction.save()
+    .then((result) => {
 
-// // 거래 내역 조회 (sellerAccount로 조회 -> myPage 판매 nft)
-// //또 무엇으로 조회 해야할까
+      res.json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    })
+})
 
-// router.get('/list',function(req,res){
+// 거래 내역 조회 (sellerAccount로 조회 -> myPage 판매 nft)
+//또 무엇으로 조회 해야할까
 
-//      Transaction.find({"sellerAccount" : req.body.sellerAccount})
-//     .then((transaction) => {
+transactionRouter.get('/list',function(req,res){
 
-//       res.json(transaction);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       next(err);
-//     })
-// });
+     Transaction.find({"sellerAccount" : req.body.sellerAccount})
+    .then((transaction) => {
 
-// //거래 기록을 업데이트하고 삭제하는 기능이 필요할까?
+      res.json(transaction);
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    })
+});
 
-// module.exports = router;
+
+
+export default transactionRouter;

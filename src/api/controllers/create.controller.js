@@ -18,6 +18,23 @@ export const createNFT1 = async (req, res) => {
     const sale = req.body.sale;
     const price = req.body.price;
 
+    const nft = new NFT({
+      awsUrl : req.file.location,
+      title: req.body.title,
+      link: req.body.link,
+      explanation:req.body.explanation,
+      tattooDesign:req.body.tattooDesign,
+      holder: req.body.userAccount,       //처음 등록할 때는 holder와 artistAccount가 전부 userAccount. 거래시
+      artistAccount: req.body.userAccount,
+      artistId: req.body.artistID,
+      price: req.body.price,
+      genre: req.body.genre,
+      theme: req.body.theme,
+      part: req.body.part,
+      sale: req.body.sale,
+    });
+  
+
     console.log(sort);
 
     

@@ -3,6 +3,19 @@ import User from'../models/user.js';
 //let utils = require('util');
 
 
+export async function insertUser( userAccount)  {
+  try {
+   const user = new User({
+      account:userAccount
+     
+    });
+    await user.save(); // db에 user 저장
+   
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
  // myPage에서 사용
   
   export async function getUser( userAccount)  {

@@ -1,11 +1,27 @@
-// // api 테스트용
-// import express from 'express';
-// let router = express.Router();
-// import User from '../../models/user';
 
-// // 유저 생성 http://localhost:5000/users/add
+import express from 'express';
+const userRouter = express.Router();
+import User from '../../models/user.js';
 
-// router.post('/add', function (req, res) {
+import * as userController from '../controllers/user.controller.js';
+
+
+
+//POST method 회원가입
+userRouter.post('/register/:account',userController.registerUser);
+
+//GET method 개인정보 조회
+// userRouter.get('/:account/:type', userController.getMyInformation);//컨트롤러 바꾸기
+
+// //PUT method 개인정보수정
+// userRouter.put(
+//   '/edit',
+//   upload.fields([{ name: 'bannerImg' }, { name: 'profileImg' }]),
+//   myPageController.editMyInformation,//컨트롤러 바꾸기
+// );
+
+
+
 //   const user = new User({
 //     account: req.body.account,
 //     name: req.body.name,
@@ -53,4 +69,4 @@
 //     });
 // });
 
-// module.exports = router;
+export default userRouter;

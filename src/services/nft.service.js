@@ -1,7 +1,61 @@
-import NFT from '../models/nft.js';
-import User from'../models/user.js';
-//import userService from '../services/user.service.js';
+import Nft from '../models/nft.js';
 
+
+
+
+export async function insertNft(
+  awsUrlT,
+  titleT,
+  linkT,
+  explanationT,
+  tattooDesignT,
+  holderT,
+  artistAccountT,
+  genreT,
+  themeT,
+  partT,
+  saleT,
+  priceT)  {
+  try {
+
+    const nft = new Nft({
+      awsUrl:awsUrlT,
+      title:titleT,
+      link:linkT,
+      explanation:explanationT,
+      tattooDesign:tattooDesignT,
+      holder:holderT,
+      artistAccount:artistAccountT,
+      genre:genreT,
+      theme:themeT,
+      part:partT,
+      sale:saleT,
+      price:priceT
+    });
+  
+    await nft.save() // db에 user 저장
+    .then((result) => {
+           return result;
+          })
+          .catch((err) => {
+            console.error(err);
+            next(err);
+          });
+
+    //   nft
+//     .save()
+//     .then((result) => {
+//       res.json(result);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       next(err);
+//     });
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
 
   //타투 NFT 가져오기
   export async function getSortedNft (tattooDesign)  {

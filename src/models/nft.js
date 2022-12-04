@@ -8,7 +8,6 @@ const { Schema } = mongoose;
  * mintSignature
  * tokenID(big number)
  * holder
- * isMint 민팅여부
  * title
  * link
  * explanation
@@ -25,6 +24,10 @@ const { Schema } = mongoose;
  */
 const { Types: ObjectId } = Schema();
 const nftSchema = new Schema({
+  awsUrl:{
+    type: String,
+    default: null,
+  },
   mintHash: {
     //lazy minting 의 경우 create할때는 없는 값이므로  default null, required true 안했음
     type: String,
@@ -43,10 +46,6 @@ const nftSchema = new Schema({
   default: null,
   required: true,
   },
-  holder: {
-    type: String,
-    default: null,
-  },
   title: {
     type: String,
     required: true,
@@ -58,8 +57,7 @@ const nftSchema = new Schema({
   },
   link: {
     type: String,
-    required: false,
-
+  
    },
   explanation: {
     type: String,
@@ -75,10 +73,9 @@ const nftSchema = new Schema({
    // required: true, 임의로 주석했습니다.
     //ref: 'User',
   },
-  ownerAccount: {
-    //type: ObjectId,
-    type: String, //:id, :account 이런식의 스트링 형식. params요고
-    //ref: 'User',
+  holder: {//ownerAccount하고 중복되어서 ownerAccount 삭제
+    type: String,
+    default: null,
   },
   price: {
     type: Number, // 자료형
@@ -88,10 +85,6 @@ const nftSchema = new Schema({
     type: Number,
     index: true,
     default: 0,
-  },
-  sort: {
-    type: String,
-    required: true,
   },
   genre: {
     type: String,
