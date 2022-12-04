@@ -30,7 +30,7 @@ export async function getArtistDetail (req, res)  {
 
   export async function getNftDetail(req, res)  {
     try {
-      const nftId = req.params.nftId;
+      const nftId = req.params.id;
 
       const nft = await nftService.getNFT(nftId); //nft이름 변경?
 

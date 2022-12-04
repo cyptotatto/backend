@@ -1,20 +1,9 @@
-
-import AWS  from 'aws-sdk';
 import multer  from 'multer';
 import multerS3  from 'multer-S3';
 import path  from 'path';
-import dotenv from 'dotenv';
-dotenv.config();
-
-AWS.config.update({
-  region: process.env.REGION,
-  accessKeyId: process.env.S3_KEYID,
-  secretAccessKey: process.env.S3_PRIVATE_KEY,
+import s3 from '../../common/s3.js';
  
-
-});
-
-const s3 = new AWS.S3();
+ 
 
 const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp'];
 

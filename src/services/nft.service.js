@@ -58,10 +58,12 @@ import User from'../models/user.js';
   export async function getOwnNFT (account)  {
     //myPageController에서 사용
     try {
+
       let myNft=new Object();;
       myNft.latest = await NFT.find({ ownerAccount: account }).sort( { _id: -1 } ); //최신순
       myNft.highPrice = await NFT.find({ price: { $gt: 0 } , ownerAccount: account }); //가격 높은 순
      // myNft.lowPrice =myNft.highPrice.reverce(); //가격 낮은 순
+
 
 
       return myNft;
@@ -73,7 +75,8 @@ import User from'../models/user.js';
   //만든 NFT 가져오기
   export async function getMadeNFT (account)  {
     //myPageController에서 사용
-    try {
+    try { 
+ 
       let madeNft=new Object();
       madeNft.latest = await NFT.find({artistAccount: account}).sort( { _id: -1 } ); //최신순
       
@@ -81,6 +84,7 @@ import User from'../models/user.js';
       //madeNft.lowPrice =madeNft.highPrice.reverce();
       
      
+ 
       return madeNft;
     } catch (err) {
       console.log(err);

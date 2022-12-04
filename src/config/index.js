@@ -12,9 +12,11 @@ export default {
   db: {
     url: process.env.DB_URL,
   },
-   s3: {
+  s3: {
     region: process.env.REGION,
     keyId: process.env.S3_KEYID,
     privateKey: process.env.S3_PRIVATE_KEY,
   },
 };
+ 
+ 
