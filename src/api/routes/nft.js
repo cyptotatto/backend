@@ -20,8 +20,13 @@ import upload from '../middlewares/ImageUploader.js';
  * createdAt
  */
 //POST method 
-//nftRouter.post("/create" , upload.single('image'),nftController.createNft);
-nftRouter.post("/create" ,nftController.createNft);
+nftRouter.post("/create" , upload.single('image'),nftController.createNft);
+ //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
+//     console.log("ddd");
+//     console.log(req.body.aa);
+//     res.send("dd");
+
+// });
 
 
 // nftRouter.post("/minting", function (req, res) {

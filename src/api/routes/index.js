@@ -5,7 +5,7 @@ import  userRouter from './user.js'; //사용자 모듈
 import  transactionRouter from './transaction.js'; //사용자 모듈
 
 
-// import  homeRouter from './home.js'; //사용자 모듈
+import  homeRouter from './home.js'; //사용자 모듈
 // import  createRouter from './create.js';
 // import  detailRouter from './detail.js';
 // import  exploreRouter from './explore.js';
@@ -22,7 +22,7 @@ router.use('/nft', nftRouter);
 router.use('/user', userRouter);
 router.use('/transaction', transactionRouter);
 
-// router.use('/home', homeRouter);
+ router.use('/home', homeRouter);
 // router.use('/myPage', myPageRouter);
 // router.use('/explore', exploreRouter);
 // router.use('/create', createRouter);

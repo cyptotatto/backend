@@ -1,4 +1,4 @@
-import Nft from '../models/nft.js';
+import NFT from '../models/nft.js';
 
 
 
@@ -18,8 +18,8 @@ export async function insertNft(
   priceT)  {
   try {
 
-    const nft = new Nft({
-      awsUrl:awsUrlT,
+    const nft = new NFT({
+      file:awsUrlT,
       title:titleT,
       link:linkT,
       explanation:explanationT,
