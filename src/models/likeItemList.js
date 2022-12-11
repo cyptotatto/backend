@@ -12,27 +12,29 @@ const likeItemSchema = new Schema({
   userAccount: {
     type: String, // 자료형
     required: true, // 필수 여부
+    unique: true, // 고유 값
     ref: 'User',
   },
 
   nfts: [
-    {
-      nftId: {
-        type: ObjectId,
-        ref: 'NFT',
-        type: String
+    // {
+    //   nftId: {
+    //    type: ObjectId,
+    //     ref: 'NFT',
+    //     type: String
        
-      },
-    },
+    //   },
+    // },
+    {type: String}
   ],
   artists:[
     {
-      artistAccount: {
-        type: ObjectId,
-        ref: 'User',
+      // artistAccount: {
+      //   type: ObjectId,
+      //   ref: 'User',
         type: String
       
-      },
+    //  },
     },
   ],
   createdAt: {

@@ -45,4 +45,21 @@ export const createNft = async (req, res) => {
       throw err;
     }
   };
+//nft 랭킹
+  export async function getNftRanking  (req, res)  {
+    try {
+      
+      const nftRanking = await nftService.getHotNFT(); //nft top100
+    
+      return res.status(200).json({
+        status: 200,
+        message: '랭킹 가져오기 성공',
+        // data: nftRanking
+        nftTop100: nftRanking,
+      });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 

@@ -1,5 +1,7 @@
 
 import User from'../models/user.js';
+import likeItemList from '../models/likeItemList.js';
+
 //let utils = require('util');
 
 
@@ -9,7 +11,16 @@ export async function insertUser( userAccount)  {
       account:userAccount
      
     });
+    //컨트롤러에서 호출해야하나?
+    const likeItem = new likeItemList({
+      userAccount:userAccount
+     
+    });
+    //컨트롤러에서 호출해야하나?
+
     await user.save(); // db에 user 저장
+    await likeItem.save(); // db에 user 저장
+
    
   } catch (err) {
     console.log(err);

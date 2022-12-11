@@ -2,7 +2,7 @@ import express from 'express';
 const nftRouter = express.Router();
 import * as nftController from '../controllers/nft.controller.js';
 
-import upload from '../middlewares/ImageUploader.js';
+import * as imageUploader from '../middlewares/ImageUploader.js';
 
 
 
@@ -20,8 +20,12 @@ import upload from '../middlewares/ImageUploader.js';
  * createdAt
  */
 //POST method 
-nftRouter.post("/create" , upload.single('image'),nftController.createNft);
+nftRouter.post("/create" , imageUploader.upload2.single('image'),nftController.createNft);
+//GET mehod  : home page 에서 랭킹 get
+nftRouter.get('/ranking', nftController.getNftRanking); 
+//
  //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
+//
 //     console.log("ddd");
 //     console.log(req.body.aa);
 //     res.send("dd");

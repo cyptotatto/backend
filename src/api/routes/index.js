@@ -2,6 +2,8 @@ import express from 'express';//시스템 모듈
 
 import  nftRouter from './nft.js'; //사용자 모듈
 import  userRouter from './user.js'; //사용자 모듈
+import  likeRouter from './like.js'; //사용자 모듈
+
 import  transactionRouter from './transaction.js'; //사용자 모듈
 
 
@@ -20,6 +22,7 @@ router.get('/', function (req, res, next) {
 
 router.use('/nft', nftRouter);
 router.use('/user', userRouter);
+router.use('/like', likeRouter);
 router.use('/transaction', transactionRouter);
 
  router.use('/home', homeRouter);
