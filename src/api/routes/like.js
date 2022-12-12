@@ -10,6 +10,9 @@ import * as likeController from '../controllers/like.controller.js';
 
 //mode:nft,user,   objectId 
 likeRouter.post("/:userAccount/:mode/:objectId",likeController.upLike);
+likeRouter.get("/user/:userAccount",likeController.getLikeArtist);
+likeRouter.get("/nft/:userAccount",likeController.getLikeNft);
+
 
 
 

@@ -114,8 +114,8 @@ export async function insertNft(
     try {
 
       let myNft=new Object();;
-      myNft.latest = await NFT.find({ ownerAccount: account }).sort( { _id: -1 } ); //최신순
-      myNft.highPrice = await NFT.find({ price: { $gt: 0 } , ownerAccount: account }); //가격 높은 순
+      myNft.latest = await NFT.find({ holder : account }).sort( { _id: -1 } ); //최신순
+      myNft.highPrice = await NFT.find({ price: { $gt: 0 } , holder: account }); //가격 높은 순
      // myNft.lowPrice =myNft.highPrice.reverce(); //가격 낮은 순
 
 
@@ -133,13 +133,29 @@ export async function insertNft(
  
       let madeNft=new Object();
       madeNft.latest = await NFT.find({artistAccount: account}).sort( { _id: -1 } ); //최신순
-      
+      console.log(account);
       madeNft.highPrice = await NFT.find({ price: { $gt: -1 } ,  artistAccount: account  }); //가격 높은 순
       //madeNft.lowPrice =madeNft.highPrice.reverce();
       
      
  
       return madeNft;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+ //좋아하는 nft정보 가져오기
+  export async function  getLikeNFT (likeNftIdList)  {
+    //myPageController에서 사용
+     let likeNft=[];
+    try { 
+      for(const id of likeNftIdList)
+      {
+       likeNft.push( await NFT.find({_id: id})); //최신순
+      }
+      
+      return likeNft;
     } catch (err) {
       console.log(err);
       throw err;

@@ -29,14 +29,14 @@ export async function setLike(account,mode,objectId)  {//user or nft :likeCount 
     }
     else//artist(user)좋아요
     {
-        User.updateOne({account:account},{$inc:{ likeCount:1}},function(err,res){ 
+        User.updateOne({account:objectId},{$inc:{ likeCount:1}},function(err,res){ 
           if(err){ throw err; } 
           console.log( 'User document updated'); }); 
 
         likeItemList.updateOne({userAccount:account},{$push:{ artists:objectId}},function(err,res){ 
           if(err){ throw err; } 
     
-          console.log(res.result   + 'likeItemList document updated'); }); 
+          console.log( 'likeItemList document updated'); }); 
 
           
     }
@@ -46,24 +46,26 @@ export async function setLike(account,mode,objectId)  {//user or nft :likeCount 
     throw err;
   }
 }
-export async function getLikeNFT (account)  {
+export async function getLikeNftList (account)  {
     try {
-      const likeNft = await likeItemList.find({ userAccount: account }); //최신순,인기순 해야함 populate
-      return likeNft.nfts;
+      const likeItem = await likeItemList.findOne({ userAccount: account }); //최신순,인기순 해야함 populate
+      return likeItem.nfts;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+//좋아하는 아티스트
+  export async function getLikeArtist (account)  {
+    try {
+      const likeItem = await likeItemList.findOne({ userAccount: account });
+      console.log(likeItem.artists);
+      return likeItem.artists;
     } catch (err) {
       console.log(err);
       throw err;
     }
   }
 
-  export async function getLikeArtist (account)  {
-    try {
-      const likeNft = await likeItemList.find({ userAccount: account });
-      return likeNft.artists;
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  }
 
 

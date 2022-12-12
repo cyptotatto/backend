@@ -25,15 +25,19 @@ const likeItemSchema = new Schema({
        
     //   },
     // },
-    {type: String}
+    {type: String,
+    unique: true, // 고유 값
+    }
   ],
   artists:[
     {
       // artistAccount: {
       //   type: ObjectId,
       //   ref: 'User',
-        type: String
-      
+        type: String,
+        unique: true, // 고유 값
+
+        
     //  },
     },
   ],

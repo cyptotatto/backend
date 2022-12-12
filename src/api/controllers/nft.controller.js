@@ -62,4 +62,34 @@ export const createNft = async (req, res) => {
       throw err;
     }
   }
+//user의  nft
+  export async function getnft (req, res)  {
+    try {
+      const userAccount = req.params.account;
+      const type = req.params.type; 
+      console.log(userAccount+"  "+type);
+      //user와 관련된 nft
+      let mylist;
+      if(type=='own')
+        mylist = await nftService.getOwnNFT(userAccount); 
+      else if(type=='made')
+        mylist = await nftService.getMadeNFT(userAccount);
+      else if(typee=='sold')
+        mylist = await transactionService.getSoldNFT(userAccount);
+      else if(type=='likeNft')
+        mylist = await likeItemService.getLikeNFT(userAccount);
+      // else if(type=='likeArtist')
+      //   mylist = await likeItemService.getLikeArtist(userAccount);
+
+      return res.status(200).json({
+        status: 200,
+        message: 'nft 가져오기 성공',
+        NFT: mylist,
+      
+      });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 

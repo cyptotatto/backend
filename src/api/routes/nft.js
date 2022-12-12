@@ -24,6 +24,8 @@ nftRouter.post("/create" , imageUploader.upload2.single('image'),nftController.c
 //GET mehod  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
 //
+nftRouter.get('/:account/:type', nftController.getnft);
+
  //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
 //
 //     console.log("ddd");

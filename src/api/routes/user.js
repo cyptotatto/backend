@@ -12,7 +12,7 @@ userRouter.post('/register/:account',userController.registerUser);
 //GET method 랭킹
 userRouter.get('/ranking', userController.getUserRanking); 
 //GET method 개인정보 조회
-// userRouter.get('/:account/:type', userController.getMyInformation);//컨트롤러 바꾸기
+userRouter.get('/:account', userController.getMyInformation);
 
 // //PUT method 개인정보수정
 // userRouter.put(

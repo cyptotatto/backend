@@ -132,6 +132,23 @@ export async function insertUser( userAccount)  {
       throw err;
     }
   }
+
+   //좋아하는 artist정보 가져오기
+   export async function  getLikeArtist (likeArtistIdList)  {
+   
+     let likeArtist=[];
+    try { 
+      for(const id of likeArtistIdList)
+      {
+        likeArtist.push( await User.find({account: id})); //최신순
+      }
+      
+      return likeArtist;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
   // plusArtistLike: async artist => {
   //   //myPageController에서 사용
   //   try {
