@@ -3,6 +3,8 @@ import * as userService from '../../services/user.service.js';
 
 
 
+
+
 export const registerUser = async (req, res) => {
   try {
     const account = req.params.account;
@@ -40,7 +42,7 @@ export async function getMyInformation (req, res)  {
     const userAccount = req.params.account;
     //user 정보
     const userInformation = await userService.getUser(userAccount);
-    
+  
     return res.status(200).json({
       status: 200,
       message: 'myPage 가져오기 성공',
@@ -53,25 +55,27 @@ export async function getMyInformation (req, res)  {
     throw err;
   }
 }
-//좋아하는 아티스트
-export async function getnft (req, res)  {
+//explore에서 검색
+export const  getArtistKeywords = async (req, res) => {
   try {
-    const userAccount = req.params.account;
-   
-    let user;
-    user= await likeItemService.getLikeArtist(userAccount);
-
+    let searchQuery = {};
+    let searchKeyWords=[];
+    if(req.query.genre)
+      searchKeyWords.push({ genre: req.query.genre });
+    searchQuery={$and:searchKeyWords};
+   console.log("???");
+    const searchedArtist = await userService.searchArtistByKeywords(searchQuery);
+    
     return res.status(200).json({
       status: 200,
-      message: '좋아하는 아티스트 가져오기 성공',
-      artist: user,
-    
+      message: '아티스트 검색 성공',
+      artist :searchedArtist
     });
   } catch (err) {
     console.log(err);
     throw err;
   }
-}
+};
 
 // const process = {
 //   login: (req, res) => {

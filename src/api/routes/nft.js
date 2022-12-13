@@ -21,11 +21,15 @@ import * as imageUploader from '../middlewares/ImageUploader.js';
  */
 //POST method 
 nftRouter.post("/create" , imageUploader.upload2.single('image'),nftController.createNft);
-//GET mehod  : home page 에서 랭킹 get
+
+//GET method  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
-//
+
+//GET method : myPage 
 nftRouter.get('/:account/:type', nftController.getnft);
 
+//GET method : explore   
+nftRouter.get('/search', nftController.getNftKeywords);
  //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
 //
 //     console.log("ddd");
@@ -33,7 +37,6 @@ nftRouter.get('/:account/:type', nftController.getnft);
 //     res.send("dd");
 
 // });
-
 
 // nftRouter.post("/minting", function (req, res) {
 //   //민팅할때는 소유자와 아티스트의 아이디가 같다.
