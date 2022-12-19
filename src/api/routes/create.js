@@ -37,7 +37,7 @@ const upload = multer({
 //위코드는 업로드 할 때 경로를 request에서 설정할 수 있게 req.query의 directory 값으로 받고, 없으면 디폴트 경로에 추가
 
 createRouter.post(
-  '/illustration',
+  '/',
   upload.single('file'),
   createController.createNFT1,
 );
