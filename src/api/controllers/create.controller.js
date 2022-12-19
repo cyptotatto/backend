@@ -1,7 +1,7 @@
 import * as userService from '../../services/user.service.js';
 import * as nftService from '../../services/nft.service.js';
 import User from '../../models/user.js';
-import Nft from '../../models/nft.js' ;
+import NFT from '../../models/nft.js' ;
 
 
 
