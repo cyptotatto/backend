@@ -1,7 +1,5 @@
 import express from 'express';
 import * as nftController from '../controllers/nft.controller.js';
-import * as createController from '../controllers/create.controller.js';
-
 import * as imageUploader from '../middlewares/ImageUploader.js';
 
 const nftRouter = express.Router();
@@ -19,7 +17,7 @@ const nftRouter = express.Router();
  * createdAt
  */
 //POST method 
-nftRouter.post('/create', imageUploader.upload2.single('file'), createController.createNFT1);
+nftRouter.post('/create', imageUploader.upload2.single('file'), nftController.createNFT1);
 
 //GET method  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
