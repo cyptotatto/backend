@@ -1,5 +1,6 @@
 import * as nftService from '../../services/nft.service.js';
 import * as userService from '../../services/user.service.js';
+import * as transactionService from '../../services/transaction.service.js';
 import User from '../../models/user.js';
 import NFT from '../../models/nft.js' ;
 
@@ -131,4 +132,23 @@ export const createNft = async (req, res) => {
       throw err;
     }
   };
-
+  
+  
+  
+    export async function getNftDetail(req, res)  {
+      try {
+        const nftId = req.params.id;
+  
+        const nft = await nftService.getNFT(nftId); //nft이름 변경?
+  
+        return res.status(200).json({
+          status: 200,
+          message: 'detail 가져오기 성공',
+          // data: nftRanking
+          nftId: nft,
+        });
+      } catch (err) {
+        console.log(err);
+        throw err;
+      }
+    }

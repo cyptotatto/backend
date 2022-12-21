@@ -1,5 +1,6 @@
 import express from 'express';
 import * as nftController from '../controllers/nft.controller.js';
+ 
 
 import {upload,upload2} from '../middlewares/ImageUploader.js';
 
@@ -28,6 +29,9 @@ nftRouter.get('/:account/:type', nftController.getnft);
 
 //GET method : explore   
 nftRouter.get('/search', nftController.getNftKeywords);
+
+//GET method : detail nft
+nftRouter.get('/detail/:id', nftController.getNftDetail);
  //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
 //
 //     console.log("ddd");

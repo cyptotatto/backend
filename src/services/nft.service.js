@@ -1,8 +1,6 @@
 import NFT from '../models/nft.js';
 
 
-
-
 export async function insertNft(
   awsUrlT,
   titleT,
@@ -41,7 +39,7 @@ export async function insertNft(
             console.error(err);
             next(err);
           });
-
+    return nft;
     //   nft
 //     .save()
 //     .then((result) => {
@@ -234,40 +232,8 @@ export async function insertNft(
     }
   }
 
-  export async function mintNFT (fileT, titleT, linkT, explanationT, sortT, genreT, themeT, partT, saleT,priceT,)  {
-    //create에서 사용
-    try {
-      const nft = new NFT({
-        file: fileT,
-        title: titleT,
-        link: linkT,
-        explanation: explanationT,
-        //artistId: '',
-        //ownerId: '',
-        sort: sortT,
-        genre: genreT,
-        theme: themeT,
-        part: partT,  
-        sale: saleT,
-        price: priceT,
-      });
-
-      nft
-        .save()
-        .then(result => {
-          return result;
-        })
-        .catch(err => {
-          console.error(err);
-          next(err);
-        });
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  }
   export async function getNFT (nftId)  {
-    //detailController에서 사용
+ 
     try {
       const nft = await NFT.find({ _id: nftId }); //
 
