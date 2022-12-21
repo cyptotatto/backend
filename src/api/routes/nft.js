@@ -17,7 +17,7 @@ const nftRouter = express.Router();
  * createdAt
  */
 //POST method 
-nftRouter.post('/create', imageUploader.upload2.single('file'), nftController.createNFT1);
+nftRouter.post('/create', imageUploader.upload2.single('file'), nftController.createNft);
 
 //GET method  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
