@@ -4,10 +4,10 @@ import * as nftService from '../../services/nft.service.js';
 export const createNft = async (req, res) => {
     try {
      
-        console.log("???" + req.body.sale);
-        //console.log(req.file.location);
+     //   console.log("???" + req.body.sale);
+        console.log(req.file.location);
 
-         const awsUrl = req.file.location;
+        const awsUrl = req.file.location;
         const title = req.body.title;
         const link = req.body.link;
         const explanation =req.body.explanation;
