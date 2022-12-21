@@ -24,10 +24,10 @@ const { Schema } = mongoose;
  */
 const { Types: ObjectId } = Schema();
 const nftSchema = new Schema({
-  // awsUrl:{
-  //   type: String,
-  //   default: null,
-  // },
+  awsUrl:{
+  type: String,
+  default: null,
+   },
   mintHash: {
     //lazy minting 의 경우 create할때는 없는 값이므로  default null, required true 안했음
     type: String,

@@ -1,11 +1,9 @@
 import express from 'express';
-const nftRouter = express.Router();
 import * as nftController from '../controllers/nft.controller.js';
 
 import {upload,upload2} from '../middlewares/ImageUploader.js';
 
-
-
+const nftRouter = express.Router();
 
 /**
  * title
