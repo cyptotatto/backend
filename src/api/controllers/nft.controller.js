@@ -1,6 +1,7 @@
 import * as nftService from '../../services/nft.service.js';
 import * as userService from '../../services/user.service.js';
 import * as transactionService from '../../services/transaction.service.js';
+import * as likeItemService from '../../services/likeItem.service.js';
 import User from '../../models/user.js';
 import NFT from '../../models/nft.js' ;
 
@@ -152,3 +153,6 @@ export const createNft = async (req, res) => {
         throw err;
       }
     }
+
+     
+    

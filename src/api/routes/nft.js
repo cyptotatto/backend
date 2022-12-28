@@ -24,7 +24,7 @@ nftRouter.post("/create" , upload2.single('image'),nftController.createNft);
 //GET method  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
 
-//GET method : myPage 
+//GET method : myPage, artist detail
 nftRouter.get('/:account/:type', nftController.getnft);
 
 //GET method : explore   
@@ -32,6 +32,9 @@ nftRouter.get('/search', nftController.getNftKeywords);
 
 //GET method : detail nft
 nftRouter.get('/detail/:id', nftController.getNftDetail);
+
+ 
+
  //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
 //
 //     console.log("ddd");
