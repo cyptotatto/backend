@@ -19,8 +19,7 @@ userRouter.get('/:account', userController.getMyInformation);
 //GET method : explore   
 userRouter.get('/artist/search',userController.getArtistKeywords);
 
-//GET method : artist detail
-userRouter.get('detail/:account',userController.getArtistDetail);
+
 
 // //PUT method 개인정보수정
 // userRouter.put(

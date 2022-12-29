@@ -8,7 +8,8 @@ import { s3, bucket } from '../../common/s3.js';
  
  
 
-const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp','.GIF', '.WEBP', '.MP4', '.MP3'];
+//const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp','.GIF', '.WEBP', '.MP4', '.MP3'];
+const allowedExtensions = ['.png', '.jpg', '.jpeg'];
 
  export const upload = multer({
   storage: multerS3({
@@ -33,6 +34,8 @@ const allowedExtensions = ['.png', '.jpg', '.jpeg', '.bmp','.GIF', '.WEBP', '.MP
   }),
 });
 
+const allowedExtensions2 = ['.png', '.jpg', '.jpeg', '.bmp','.GIF', '.WEBP', '.MP4', '.MP3'];
+
 export const upload2 = multer({
   storage: multerS3({
     s3: s3,
@@ -45,7 +48,7 @@ export const upload2 = multer({
      const dir = 'create';
      const name = `${crypto.randomUUID()}.${extension}`;
      
-      if (!allowedExtensions.includes(extension)) {
+      if (!allowedExtensions2.includes(extension)) {
         return callback(new Error('wrong extention'));
       }//{ fieldName: file.fieldname }  `${uploadDirectory}/${Date.now()}_${file.originalname}`
     

@@ -27,6 +27,7 @@ const nftSchema = new Schema({
   awsUrl:{
   type: String,
   default: null,
+  required: true,
    },
   mintHash: {
     //lazy minting 의 경우 create할때는 없는 값이므로  default null, required true 안했음
@@ -40,11 +41,6 @@ const nftSchema = new Schema({
   tokenID: {
     type: BigNumberSchema,
     default: 0,
-  },
-  file: {
-  type: String,
-  default: null,
-  required: true,
   },
   title: {
     type: String,

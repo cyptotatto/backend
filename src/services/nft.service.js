@@ -17,7 +17,7 @@ export async function insertNft(
   try {
 
     const nft = new NFT({
-      file:awsUrlT,
+      awsUrl:awsUrlT,
       title:titleT,
       link:linkT,
       explanation:explanationT,
@@ -231,7 +231,7 @@ export async function insertNft(
       throw err;
     }
   }
-
+ 
   export async function getNFT (nftId)  {
  
     try {
