@@ -39,7 +39,7 @@ export const createNft = async (req, res) => {
         part,
         sale,
         price);
-  
+      
       return res.status(200).json({
         status: 200,
         message: 'nft create',
