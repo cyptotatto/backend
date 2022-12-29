@@ -24,7 +24,7 @@ nftRouter.post("/create" , upload2.single('image'),nftController.createNft);
 //GET method  : home page 에서 랭킹 get
 nftRouter.get('/ranking', nftController.getNftRanking); 
 
-//GET method : myPage 
+//GET method : myPage ,detail
 nftRouter.get('/:account/:type', nftController.getnft);
 
 //GET method : explore   
