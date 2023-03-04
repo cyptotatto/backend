@@ -13,7 +13,7 @@ export const createNft = async (req, res) => {
      //   console.log("???" + req.body.sale);
        // console.log(req.file.location);
 
-      //  const awsUrl = req.file.location;
+        const awsUrl = req.file.location;
         const title = req.body.title;
         const link = req.body.link;
         const explanation =req.body.explanation;
@@ -27,7 +27,7 @@ export const createNft = async (req, res) => {
         const price = req.body.price;
    
        const createResult = await nftService.insertNft
-       (//awsUrl,
+       (awsUrl,
         title,
         link,
         explanation,
@@ -43,7 +43,7 @@ export const createNft = async (req, res) => {
       return res.status(200).json({
         status: 200,
         message: 'nft create',
-        //url: awsUrl,
+        url: awsUrl,
         result :createResult
       });
     } catch (err) {
