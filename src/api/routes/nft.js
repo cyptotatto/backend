@@ -19,7 +19,7 @@ const nftRouter = express.Router();
  * createdAt
  */
 //POST method 
-nftRouter.post("/create" , upload2.single('image'),nftController.createNft);
+nftRouter.post("/create" , upload2.single('file'),nftController.createNft);
 //nftRouter.post("/create" ,nftController.createNft);
 
 
