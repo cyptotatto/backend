@@ -26,7 +26,8 @@ app.use(cookieParser()); // cookie 사용시 설정
 app.use(express.static('public')); // option도 가능
 app.use(morgan('tiny')); // winston
 app.use(helmet()); //보안 이슈
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors());
 
 
 app.use('/', router);
