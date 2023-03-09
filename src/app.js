@@ -27,8 +27,11 @@ app.use(express.static('public')); // option도 가능
 app.use(morgan('tiny')); // winston
 app.use(helmet()); //보안 이슈
 //app.use(cors(corsOptions));
-app.use(cors());
-
+//app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 
 app.use('/', router);
 
