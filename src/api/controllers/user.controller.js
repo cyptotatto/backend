@@ -7,7 +7,7 @@ import { request } from 'express';
 export const registerUser = async (req, res) => {
     console.log(req)
     
-    const account = req.params.account;
+    const account = req.body.account;
     console.log(account)
     try {await userService.insertUser(account);
     }catch(err){

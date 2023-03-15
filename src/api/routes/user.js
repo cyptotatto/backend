@@ -8,7 +8,7 @@ import * as userController from '../controllers/user.controller.js';
 
 
 //POST method 회원가입
-userRouter.post('/register/:account',userController.registerUser);
+userRouter.post('/register',userController.registerUser);
 
 //GET method 랭킹
 userRouter.get('/ranking', userController.getUserRanking); 
