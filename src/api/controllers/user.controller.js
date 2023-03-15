@@ -1,22 +1,24 @@
 import * as userService from '../../services/user.service.js';
 
 import * as nftService from '../../services/nft.service.js';
+import { request } from 'express';
  
 
 export const registerUser = async (req, res) => {
-  try {
+    console.log(req)
+    
     const account = req.params.account;
-    console.log('dddd ' + req.body.a);
-    await userService.insertUser(account);
+    console.log(account)
+    try {await userService.insertUser(account);
+    }catch(err){
+      console.log(err)
+    };
 
     return res.status(200).json({
       status: 200,
       message: '회원가입성공',
     });
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+   
 };
 
 export async function getUserRanking(req, res) {
