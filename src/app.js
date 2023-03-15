@@ -11,8 +11,11 @@ import router from './api/routes/index.js';
 
 const app = express();
 
+
+
 const corsOptions = {
-  origin: config.host.cors,// 접근 권한을 부여하는 도메인 
+  origin: 'http://localhost:3000',
+  //origin: config.host.cors,// 접근 권한을 부여하는 도메인 
   credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
 };
 
