@@ -1,25 +1,21 @@
-
 import express from 'express';
-const userRouter = express.Router();
+
 import User from '../../models/user.js';
 
 import * as userController from '../controllers/user.controller.js';
-
-
+const userRouter = express.Router();
 
 //POST method 회원가입
-userRouter.post('/register',userController.registerUser);
+userRouter.post('/register', userController.registerUser);
 
 //GET method 랭킹
-userRouter.get('/ranking', userController.getUserRanking); 
+userRouter.get('/ranking', userController.getUserRanking);
 
 //GET method 개인정보 조회
 userRouter.get('/:account', userController.getMyInformation);
 
-//GET method : explore   
-userRouter.get('/artist/search',userController.getArtistKeywords);
-
-
+//GET method : explore
+userRouter.get('/artist/search', userController.getArtistKeywords);
 
 // //PUT method 개인정보수정
 // userRouter.put(
@@ -27,8 +23,6 @@ userRouter.get('/artist/search',userController.getArtistKeywords);
 //   upload.fields([{ name: 'bannerImg' }, { name: 'profileImg' }]),
 //   myPageController.editMyInformation,//컨트롤러 바꾸기
 // );
-
-
 
 //   const user = new User({
 //     account: req.body.account,

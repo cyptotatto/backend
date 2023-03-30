@@ -1,30 +1,28 @@
 import * as userService from '../../services/user.service.js';
 
 import * as nftService from '../../services/nft.service.js';
-import { request } from 'express';
- 
 
 export const registerUser = async (req, res) => {
-    console.log(req)
-    
-    const account = req.body.account;
-    console.log(account)
-    try {await userService.insertUser(account);
-    }catch(err){
-      console.log(err)
-    };
+  try {
+    const userAccount = req.body.userAccount;
+    console.log('여기222 ' + req.body.userAccount);
+
+    await userService.insertUser(userAccount);
 
     return res.status(200).json({
       status: 200,
       message: '회원가입성공',
     });
-   
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 };
 
 export async function getUserRanking(req, res) {
   try {
+    console.log('test  ' + req.body.test);
     const userRanking = await userService.getHotArtist(); //nft top100
-
     return res.status(200).json({
       status: 200,
       message: '랭킹 가져오기 성공',
@@ -75,7 +73,6 @@ export const getArtistKeywords = async (req, res) => {
     throw err;
   }
 };
-
 
 // const process = {
 //   login: (req, res) => {
