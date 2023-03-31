@@ -7,6 +7,8 @@ export async function insertUser(userAccount) {
   try {
     const user = new User({
       account: userAccount,
+      name: userAccount,
+      profile: userAccount,
     });
     //컨트롤러에서 호출해야하나?
     // const likeItem = new likeItemList({
