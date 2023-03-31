@@ -20,24 +20,22 @@ const userSchema = new Schema({
     unique: true, // 고유 값
     //  default: true,
   },
-  bannerImgPath:{
-    type: String
+  bannerImgPath: {
+    type: String,
   },
-  profileImgPath:{
-    type: String
+  profileImgPath: {
+    type: String,
   },
   name: {
     type: String,
-   // default:null
-    
+    // default:null
   },
   profile: {
     type: String,
-   
+    default: null,
   },
   email: {
-    type: String
-    
+    type: String,
   },
 
   // artist: {
@@ -64,5 +62,5 @@ const userSchema = new Schema({
 });
 
 //module.exports = mongoose.model('User', userSchema);
- const User = mongoose.model("User", userSchema);
- export default User;
+const User = mongoose.model('User', userSchema);
+export default User;

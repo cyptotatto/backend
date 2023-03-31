@@ -4,9 +4,14 @@ import * as nftService from '../../services/nft.service.js';
 
 export const registerUser = async (req, res) => {
   try {
-    const userAccount = req.body.userAccount;
-    console.log('여기2223 ' + req.body.userAccount);
-
+ 
+    const userAccount = '22222';
+    // req.body.userAccount;
+    //req.params.account; //req.body.userAccount;
+    console.log('여기222 ' + req.body);
+    console.log('여기33 ' + req.body.userAccount);
+ 
+q
     await userService.insertUser(userAccount);
 
     return res.status(200).json({
@@ -21,7 +26,7 @@ export const registerUser = async (req, res) => {
 
 export async function getUserRanking(req, res) {
   try {
-    console.log('test  ' + req.body.test);
+    console.log('test  ' + req.body);
     const userRanking = await userService.getHotArtist(); //nft top100
     return res.status(200).json({
       status: 200,

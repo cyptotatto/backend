@@ -1,7 +1,7 @@
 import express from 'express';
 const myPageRouter = express.Router();
-import upload from '../middlewares/ImageUploader.js';
-
+//import upload from '../middlewares/ImageUploader.js';
+import { upload, upload2 } from '../middlewares/ImageUploader.js';
 import * as myPageController from '../controllers/mypage.controller.js';
 
 //UserName(account), 소유NFT 반환
@@ -9,7 +9,7 @@ myPageRouter.get('/:account/:type', myPageController.getMyInformation);
 //개인 정보 수정
 myPageRouter.post(
   '/edit',
-  upload.fields([{ name: 'bannerImg' }, { name: 'profileImg' }]),
+  upload2.fields([{ name: 'bannerImg' }, { name: 'profileImg' }]),
   myPageController.editMyInformation,
 );
 
