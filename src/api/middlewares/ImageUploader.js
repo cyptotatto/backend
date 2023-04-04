@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import express from 'express';
 
 import multer from 'multer';
-import multerS3 from 'multer-S3';
+import multerS3 from 'multer-s3';
 import path from 'path';
 import { s3, bucket } from '../../common/s3.js';
 
