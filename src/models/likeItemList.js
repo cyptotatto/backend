@@ -22,27 +22,26 @@ const likeItemSchema = new Schema({
     //    type: ObjectId,
     //     ref: 'NFT',
     //     type: String
-       
+
     //   },
     // },
-    {type: String,
-    unique: true, // 고유 값
-    }
+    {
+      type: String,
+      //unique: true, // 고유 값
+    },
   ],
-  artists:[
+  artists: [
     {
       // artistAccount: {
       //   type: ObjectId,
       //   ref: 'User',
-        type: String,
-        unique: true, // 고유 값
+      type: String,
+      //unique: true, // 고유 값
 
-        
-    //  },
+      //  },
     },
   ],
   createdAt: {
-    
     type: Date,
     default: Date.now,
   },
@@ -50,5 +49,5 @@ const likeItemSchema = new Schema({
 
 //module.exports = mongoose.model('likeItem', likeItemSchema);
 
-const likeItem  =  mongoose.model('likeItem', likeItemSchema);
+const likeItem = mongoose.model('likeItem', likeItemSchema);
 export default likeItem;
