@@ -28,7 +28,7 @@ const userSchema = new Schema({
   },
   name: {
     type: String,
-    // default:null
+    default: null,
   },
   profile: {
     type: String,

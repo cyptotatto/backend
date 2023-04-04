@@ -1,8 +1,7 @@
 import express from 'express';
 import * as nftController from '../controllers/nft.controller.js';
- 
 
-import {upload,upload2} from '../middlewares/ImageUploader.js';
+import { upload, upload2 } from '../middlewares/ImageUploader.js';
 
 const nftRouter = express.Router();
 
@@ -18,23 +17,23 @@ const nftRouter = express.Router();
  * part
  * createdAt
  */
-//POST method 
-nftRouter.post("/create" , upload2.single('file'),nftController.createNft);
+
+//POST method
+nftRouter.post('/create', upload2.single('file'), nftController.createNft);
 //nftRouter.post("/create" ,nftController.createNft);
 
-
 //GET method  : home page 에서 랭킹 get
-nftRouter.get('/ranking', nftController.getNftRanking); 
+nftRouter.get('/ranking', nftController.getNftRanking);
 
 //GET method : myPage ,detail
 nftRouter.get('/:account/:type', nftController.getnft);
 
-//GET method : explore   
+//GET method : explore
 nftRouter.get('/search', nftController.getNftKeywords);
 
 //GET method : detail nft
 nftRouter.get('/detail/:id', nftController.getNftDetail);
- //nftRouter.post("/create" ,nftController.createNft);//function(req,res){
+//nftRouter.post("/create" ,nftController.createNft);//function(req,res){
 //
 //     console.log("ddd");
 //     console.log(req.body.aa);
@@ -75,5 +74,3 @@ export default nftRouter;
 //소유자 이름, 아티스트 이름으로 검색 기능
 //좋아요 정렬 어떻게 할 것인지 생각하기 (실시간 반영)
 //아티스트 스키마에도 좋아요 카운트 추가해야한다.
-
-

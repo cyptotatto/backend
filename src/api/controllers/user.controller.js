@@ -4,11 +4,7 @@ import * as nftService from '../../services/nft.service.js';
 
 export const registerUser = async (req, res) => {
   try {
-    const userAccount = '22222';
-    // req.body.userAccount;
-    //req.params.account; //req.body.userAccount;
-    console.log('여기222 ' + req.body);
-    console.log('여기33 ' + req.body.userAccount);
+    const userAccount = req.body.userAccount;
 
     await userService.insertUser(userAccount);
 
